@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:open_fashion/widget/custom_button_add2basket.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,11 +11,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+      home: Scaffold(
+        body: SafeArea(
+          child: Column(
+            children: [
+              AddToBesket(),
+            ],
+          ),
+        ),
       ),
-      home: const Scaffold(),
     );
   }
 }

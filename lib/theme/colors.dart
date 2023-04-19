@@ -11,4 +11,6 @@ class AppColors {
   static const Color offWhite = Color(0xFFFCFCFC);
   static const Color primary = Color(0xFFA8715A);
   static const Color secondary = Color(0xFFDD8560);
+  static const Color footer = Color(0xFFC4C4C4);
+  static const Color border = Color(0xFFDEDEDE);
 }
