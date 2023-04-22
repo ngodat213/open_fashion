@@ -9,7 +9,12 @@ class HeaderWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: Dimens.HEIGHT_60,
-      margin: EdgeInsets.fromLTRB(16, 20, 23, 9),
+      margin: EdgeInsets.fromLTRB(
+        Dimens.SCREEN_PADDING,
+        Dimens.PADDING_20,
+        Dimens.PADDING_23,
+        Dimens.PADDING_9,
+      ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

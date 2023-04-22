@@ -4,8 +4,24 @@ import 'package:open_fashion/theme/colors.dart';
 import 'package:open_fashion/theme/txt_styles.dart';
 import 'package:open_fashion/theme/dimens.dart';
 
-class GridViewCard extends StatelessWidget {
-  const GridViewCard({super.key});
+class HomefullCard extends StatelessWidget {
+  const HomefullCard(
+      {required this.thumbUrl,
+      required this.name,
+      required this.title,
+      required this.price,
+      required this.ratting,
+      required this.size,
+      this.favorite,
+      super.key});
+
+  final String thumbUrl;
+  final String name;
+  final String title;
+  final double price;
+  final double ratting;
+  final List<String> size;
+  final bool? favorite;
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +29,6 @@ class GridViewCard extends StatelessWidget {
       height: Dimens.HEIGHT_285,
       width: Dimens.WIDTH_165,
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Stack(
             children: [
@@ -36,13 +51,11 @@ class GridViewCard extends StatelessWidget {
           Padding(
             padding: EdgeInsets.only(left: 4),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(height: Dimens.HEIGHT_8),
-                Text('21WN'.toUpperCase(),
+                Text('${name.toUpperCase()} $title',
+                    textAlign: TextAlign.center,
                     style: TxtStyle.font12(AppColors.titleActive)),
-                Text('reversible angora cardigan',
-                    style: TxtStyle.font12(AppColors.label)),
                 SizedBox(height: Dimens.HEIGHT_4),
                 Text('\$120', style: TxtStyle.font15(AppColors.secondary)),
               ],
