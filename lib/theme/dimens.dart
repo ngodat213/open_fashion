@@ -12,7 +12,9 @@ class Dimens {
   static const HEIGHT_45 = 45.0;
   static const HEIGHT_56 = 56.0;
   static const HEIGHT_60 = 60.0;
+  static const HEIGHT_133 = 133.0;
   static const HEIGHT_134 = 134.0;
+  static const HEIGHT_155 = 155.0;
   static const HEIGHT_220 = 220.0;
   static const HEIGHT_285 = 285.0;
   static const HEIGHT_340 = 340.0;
@@ -22,9 +24,10 @@ class Dimens {
   // WIDTH
   static const WIDTH_1 = 1.0;
   static const WIDTH_16 = 16.0;
-  static const WIDTH_24 = 16.0;
+  static const WIDTH_24 = 24.0;
   static const WIDTH_100 = 100.0;
   static const WIDTH_165 = 165.0;
+  static const WIDTH_211 = 211.0;
   static const WIDTH_343 = 343.0;
 
   // PADDING
@@ -39,11 +42,13 @@ class Dimens {
   // FONT SIZE
   static const TEXT_SIZE_10 = 10.0;
   static const TEXT_SIZE_12 = 12.0;
+  static const TEXT_SIZE_13 = 12.0;
   static const TEXT_SIZE_14 = 14.0;
   static const TEXT_SIZE_15 = 15.0;
   static const TEXT_SIZE_16 = 16.0;
   static const TEXT_SIZE_18 = 18.0;
 
   // RADIUS
+  static const RADIUS_30 = 30.0;
   static const RADIUS_100 = 100.0;
 }

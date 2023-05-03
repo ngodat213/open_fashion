@@ -29,6 +29,12 @@ class TxtStyle {
         fontWeight: FontWeight.w400,
       );
 
+  static TextStyle font13(Color? color) => GoogleFonts.tenorSans(
+        color: color ?? Colors.black,
+        fontSize: Dimens.TEXT_SIZE_13,
+        fontWeight: FontWeight.w400,
+      );
+
   static TextStyle font12(Color? color) => GoogleFonts.tenorSans(
         color: color ?? Colors.black,
         fontSize: Dimens.TEXT_SIZE_12,

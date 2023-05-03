@@ -22,10 +22,9 @@ class FooterWidget extends StatelessWidget {
             ],
           ),
           SizedBox(height: 26),
-          Container(
-            margin: EdgeInsets.only(left: 125, right: 125),
-            height: 1,
-            decoration: BoxDecoration(color: AppColors.label),
+          SvgPicture.asset(
+            'res/icons/divider.svg',
+            height: 15,
           ),
           SizedBox(height: 32),
           Column(
@@ -38,10 +37,9 @@ class FooterWidget extends StatelessWidget {
             ],
           ),
           SizedBox(height: 32),
-          Container(
-            margin: EdgeInsets.only(left: 125, right: 125),
-            height: 1,
-            decoration: BoxDecoration(color: AppColors.label),
+          SvgPicture.asset(
+            'res/icons/divider.svg',
+            height: 15,
           ),
           SizedBox(height: 32),
           Row(

@@ -14,7 +14,7 @@ dependencies:
     sdk: flutter
   google_fonts: ^2.1.0 # load fonts
   flutter_svg: ^0.22.0 # load svg image
-
+  carousel_slider: ^4.0.0 # image slider
   cupertino_icons: ^1.0.2
 
 dev_dependencies:

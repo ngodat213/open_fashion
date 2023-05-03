@@ -13,4 +13,16 @@ class AppColors {
   static const Color secondary = Color(0xFFDD8560);
   static const Color footer = Color(0xFFC4C4C4);
   static const Color border = Color(0xFFDEDEDE);
+
+  static LinearGradient myGradient = LinearGradient(
+    colors: [
+      Colors.black,
+      Colors.black.withOpacity(0.6),
+      Colors.black.withOpacity(0.1),
+      Colors.black.withOpacity(0.05),
+      Colors.white.withOpacity(0),
+    ],
+    begin: Alignment.bottomCenter,
+    end: Alignment.topCenter,
+  );
 }

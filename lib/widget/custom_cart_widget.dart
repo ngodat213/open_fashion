@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:open_fashion/theme/colors.dart';
 import 'package:open_fashion/theme/txt_styles.dart';
+import 'package:open_fashion/theme/dimens.dart';
 
 class CartWidget extends StatelessWidget {
   const CartWidget({super.key});
@@ -9,11 +10,11 @@ class CartWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 134,
+      height: Dimens.HEIGHT_134,
       child: Row(children: [
         Container(
-          height: 133,
-          width: 100,
+          height: Dimens.HEIGHT_133,
+          width: Dimens.WIDTH_100,
           margin: EdgeInsets.only(right: 11),
           decoration: BoxDecoration(
               image: DecorationImage(image: AssetImage('res/images/item.png'))),
@@ -37,8 +38,8 @@ class CartWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(
-                    width: 24,
-                    height: 24,
+                    width: Dimens.WIDTH_24,
+                    height: Dimens.HEIGHT_24,
                     padding: EdgeInsets.all(4),
                     decoration: BoxDecoration(
                       border: Border.all(color: AppColors.footer),
@@ -48,8 +49,8 @@ class CartWidget extends StatelessWidget {
                   ),
                   Text('1', style: TxtStyle.font14(AppColors.titleActive)),
                   Container(
-                    width: 24,
-                    height: 24,
+                    width: Dimens.WIDTH_24,
+                    height: Dimens.HEIGHT_24,
                     padding: EdgeInsets.all(4),
                     decoration: BoxDecoration(
                       border: Border.all(color: AppColors.footer),
@@ -63,7 +64,7 @@ class CartWidget extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: 12),
+            SizedBox(height: Dimens.HEIGHT_12),
             Text('\$120', style: TxtStyle.font14(AppColors.secondary))
           ],
         )
