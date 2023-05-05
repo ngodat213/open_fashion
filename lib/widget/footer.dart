@@ -9,7 +9,8 @@ class FooterWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
+      margin: EdgeInsets.only(top: Dimens.HEIGHT_35),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [

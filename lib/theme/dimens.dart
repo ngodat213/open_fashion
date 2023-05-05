@@ -7,15 +7,19 @@ class Dimens {
   static const HEIGHT_11 = 11.0;
   static const HEIGHT_12 = 12.0;
   static const HEIGHT_16 = 16.0;
+  static const HEIGHT_20 = 20.0;
   static const HEIGHT_24 = 24.0;
   static const HEIGHT_32 = 32.0;
+  static const HEIGHT_35 = 35.0;
   static const HEIGHT_45 = 45.0;
   static const HEIGHT_56 = 56.0;
   static const HEIGHT_60 = 60.0;
   static const HEIGHT_133 = 133.0;
   static const HEIGHT_134 = 134.0;
   static const HEIGHT_155 = 155.0;
+  static const HEIGHT_200 = 200.0;
   static const HEIGHT_220 = 220.0;
+  static const HEIGHT_260 = 260.0;
   static const HEIGHT_285 = 285.0;
   static const HEIGHT_340 = 340.0;
   static const HEIGHT_457 = 457.0;
@@ -38,6 +42,7 @@ class Dimens {
   static const SCREEN_PADDING = 16.0;
   static const PADDING_20 = 20.0;
   static const PADDING_23 = 23.0;
+  static const PADDING_47 = 47.0;
 
   // FONT SIZE
   static const TEXT_SIZE_10 = 10.0;

@@ -26,15 +26,15 @@ class HomefullCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: Dimens.HEIGHT_285,
       width: Dimens.WIDTH_165,
       child: Column(
         children: [
           Stack(
             children: [
               Image.asset(
-                'res/images/item.png',
+                thumbUrl,
                 width: Dimens.WIDTH_165,
+                height: Dimens.HEIGHT_200,
                 fit: BoxFit.cover,
               ),
               Positioned(
@@ -48,16 +48,18 @@ class HomefullCard extends StatelessWidget {
               )
             ],
           ),
-          Padding(
-            padding: EdgeInsets.only(left: 4),
+          Expanded(
             child: Column(
               children: [
                 SizedBox(height: Dimens.HEIGHT_8),
-                Text('${name.toUpperCase()} $title',
-                    textAlign: TextAlign.center,
-                    style: TxtStyle.font12(AppColors.titleActive)),
+                SizedBox(
+                  width: Dimens.WIDTH_165,
+                  child: Text('${name.toUpperCase()} $title',
+                      textAlign: TextAlign.center,
+                      style: TxtStyle.font12(AppColors.titleActive)),
+                ),
                 SizedBox(height: Dimens.HEIGHT_4),
-                Text('\$120', style: TxtStyle.font15(AppColors.secondary)),
+                Text('\$$price', style: TxtStyle.font15(AppColors.secondary)),
               ],
             ),
           ),
