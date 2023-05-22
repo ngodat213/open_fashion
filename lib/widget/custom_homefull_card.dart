@@ -4,23 +4,14 @@ import 'package:open_fashion/theme/colors.dart';
 import 'package:open_fashion/theme/txt_styles.dart';
 import 'package:open_fashion/theme/dimens.dart';
 
+import '../model/item.dart';
+
 class HomefullCard extends StatelessWidget {
   const HomefullCard(
-      {required this.thumbUrl,
-      required this.name,
-      required this.title,
-      required this.price,
-      required this.ratting,
-      required this.size,
+      {required this.item,
       this.favorite,
       super.key});
-
-  final String thumbUrl;
-  final String name;
-  final String title;
-  final double price;
-  final double ratting;
-  final List<String> size;
+  final Item item;
   final bool? favorite;
 
   @override
@@ -32,7 +23,7 @@ class HomefullCard extends StatelessWidget {
           Stack(
             children: [
               Image.asset(
-                thumbUrl,
+                item.thumbUrl,
                 width: Dimens.WIDTH_165,
                 height: Dimens.HEIGHT_200,
                 fit: BoxFit.cover,
@@ -54,12 +45,12 @@ class HomefullCard extends StatelessWidget {
                 SizedBox(height: Dimens.HEIGHT_8),
                 SizedBox(
                   width: Dimens.WIDTH_165,
-                  child: Text('${name.toUpperCase()} $title',
+                  child: Text('${item.name.toUpperCase()} ${item.title}',
                       textAlign: TextAlign.center,
                       style: TxtStyle.font12(AppColors.titleActive)),
                 ),
                 SizedBox(height: Dimens.HEIGHT_4),
-                Text('\$$price', style: TxtStyle.font15(AppColors.secondary)),
+                Text('\$${item.price}', style: TxtStyle.font15(AppColors.secondary)),
               ],
             ),
           ),

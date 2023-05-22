@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'screen/search_view_screen/search_view_screen.dart';
 import 'screen/homepage_screen/homepage_screen.dart';
 
 void main() {
