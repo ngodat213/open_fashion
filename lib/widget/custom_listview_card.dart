@@ -1,59 +1,67 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:open_fashion/model/product.dart';
 import 'package:open_fashion/theme/colors.dart';
 import 'package:open_fashion/theme/txt_styles.dart';
 import 'package:open_fashion/theme/dimens.dart';
 import 'package:open_fashion/widget/custom_size_button.dart';
 
+import '../screen/product_detail_screen/product_detail_screen.dart';
+
 class ListViewCard extends StatelessWidget {
-  const ListViewCard(
-      {required this.thumbUrl,
-      required this.name,
-      required this.title,
-      required this.price,
-      required this.ratting,
-      required this.size,
-      this.favorite,
-      super.key});
-  final String thumbUrl;
-  final String name;
-  final String title;
-  final double price;
-  final double ratting;
-  final List<String> size;
+  const ListViewCard({
+    required this.product,
+    this.favorite = false,
+    super.key,
+  });
+  final Product product;
   final bool? favorite;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: Dimens.HEIGHT_134,
-      width: MediaQuery.of(context).size.width,
-      child: Row(children: [
-        Container(
-          height: Dimens.HEIGHT_134,
-          width: Dimens.WIDTH_100,
-          decoration: BoxDecoration(
-              image: DecorationImage(image: AssetImage(thumbUrl))),
-        ),
-        Container(
-          width: MediaQuery.of(context).size.width - 111,
-          margin: EdgeInsets.only(left: Dimens.PADDING_11),
-          child:
-              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-            SizedBox(height: Dimens.HEIGHT_7),
-            Text(name.toUpperCase(),
-                style: TxtStyle.font14(AppColors.titleActive)),
-            SizedBox(height: Dimens.HEIGHT_6),
-            Text(title, style: TxtStyle.font12(AppColors.titleActive)),
-            SizedBox(height: Dimens.HEIGHT_4),
-            Text('\$$price', style: TxtStyle.font14(AppColors.secondary)),
-            SizedBox(height: Dimens.HEIGHT_11),
-            _customRatting(),
-            SizedBox(height: Dimens.HEIGHT_11),
-            _customSize(),
-          ]),
-        )
-      ]),
+    return InkWell(
+      onTap: () {
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) => ProductDetailScreen(
+              product: product,
+            ),
+          ),
+        );
+      },
+      child: Container(
+        margin: EdgeInsets.only(bottom: Dimens.PADDING_12),
+        height: Dimens.HEIGHT_134,
+        width: MediaQuery.of(context).size.width,
+        child: Row(children: [
+          Container(
+            height: Dimens.HEIGHT_134,
+            width: Dimens.WIDTH_100,
+            decoration: BoxDecoration(
+                image: DecorationImage(image: AssetImage(product.thumbUrl))),
+          ),
+          Container(
+            width: MediaQuery.of(context).size.width - 143,
+            margin: EdgeInsets.only(left: Dimens.PADDING_11),
+            child:
+                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              SizedBox(height: Dimens.HEIGHT_7),
+              Text(product.name.toUpperCase(),
+                  style: TxtStyle.font14(AppColors.titleActive)),
+              SizedBox(height: Dimens.HEIGHT_6),
+              Text(product.title,
+                  style: TxtStyle.font12(AppColors.titleActive)),
+              SizedBox(height: Dimens.HEIGHT_4),
+              Text('\$${product.price}',
+                  style: TxtStyle.font14(AppColors.secondary)),
+              SizedBox(height: Dimens.HEIGHT_11),
+              _customRatting(),
+              SizedBox(height: Dimens.HEIGHT_11),
+              _customSize(),
+            ]),
+          )
+        ]),
+      ),
     );
   }
 
@@ -62,8 +70,9 @@ class ListViewCard extends StatelessWidget {
       Row(children: [
         Text('Size', style: TxtStyle.font12(AppColors.label)),
         Row(
-            children: List.generate(size.length,
-                (index) => ButtonSize(size: size[index].toUpperCase())))
+            children: product.size
+                .map((e) => ButtonSize(size: e.toUpperCase()))
+                .toList())
       ]),
       Container(
         margin: EdgeInsets.only(right: Dimens.SCREEN_PADDING),
@@ -87,7 +96,7 @@ class ListViewCard extends StatelessWidget {
           ),
         ),
         TextSpan(
-          text: '$ratting Ratings',
+          text: '${product.ratting} Ratings',
           style: TxtStyle.font12(AppColors.label),
         )
       ]),

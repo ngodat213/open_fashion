@@ -5,7 +5,7 @@ import 'package:open_fashion/theme/dimens.dart';
 import 'package:open_fashion/theme/txt_styles.dart';
 import 'package:open_fashion/widget/custom_homefull_card.dart';
 
-import '../../../model/item.dart';
+import '../../../model/product.dart';
 import 'custom_divider.dart';
 
 class TabBarTypeItem extends StatelessWidget {
@@ -14,7 +14,7 @@ class TabBarTypeItem extends StatelessWidget {
     required TabController tabController,
     required this.items,
   }) : _tabController = tabController;
-  final List<Item> items;
+  final List<Product> items;
   final TabController _tabController;
 
   @override
@@ -68,7 +68,7 @@ class custom_item_tabbarview extends StatelessWidget {
     this.items, {
     super.key,
   });
-  final List<Item> items;
+  final List<Product> items;
 
   @override
   Widget build(BuildContext context) {

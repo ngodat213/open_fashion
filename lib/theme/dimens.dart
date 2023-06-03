@@ -39,6 +39,7 @@ class Dimens {
   static const PADDING_6 = 6.0;
   static const PADDING_9 = 9.0;
   static const PADDING_11 = 11.0;
+  static const PADDING_12 = 12.0;
   static const SCREEN_PADDING = 16.0;
   static const PADDING_20 = 20.0;
   static const PADDING_23 = 23.0;

@@ -14,6 +14,10 @@ class AppColors {
   static const Color footer = Color(0xFFC4C4C4);
   static const Color border = Color(0xFFDEDEDE);
 
+  static const Color productBlack = Color(0xff0F140D);
+  static const Color productOrange = Color(0xffDD8560);
+  static const Color productGrey = Color(0xffE1E0DB);
+
   static LinearGradient myGradient = LinearGradient(
     colors: [
       Colors.black,

@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:open_fashion/theme/dimens.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:open_fashion/widget/menu_navbar.dart';
 
-class HeaderWidget extends StatelessWidget {
+class HeaderWidget extends StatefulWidget {
   const HeaderWidget({super.key});
 
+  @override
+  State<HeaderWidget> createState() => _HeaderWidgetState();
+}
+
+class _HeaderWidgetState extends State<HeaderWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -18,7 +24,8 @@ class HeaderWidget extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          SvgPicture.asset("res/icons/menu.svg"),
+          ElevatedButton(
+              onPressed: () {}, child: SvgPicture.asset("res/icons/menu.svg")),
           Image.asset("res/images/logo.png"),
           SizedBox(
             child: Row(

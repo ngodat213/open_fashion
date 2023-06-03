@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:open_fashion/theme/colors.dart';
 import 'package:open_fashion/theme/dimens.dart';
+import 'package:open_fashion/theme/txt_styles.dart';
 
 class ButtonSize extends StatelessWidget {
-  const ButtonSize({super.key, required this.size});
+  const ButtonSize({
+    super.key,
+    required this.size,
+    this.isChoose = false,
+  });
   final String size;
+  final bool? isChoose;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -12,9 +18,21 @@ class ButtonSize extends StatelessWidget {
       height: Dimens.HEIGHT_24,
       margin: EdgeInsets.only(left: Dimens.PADDING_6),
       decoration: BoxDecoration(
-          border: Border.all(width: Dimens.WIDTH_1, color: AppColors.border),
+          color:
+              isChoose == true ? AppColors.titleActive : AppColors.background,
+          border: Border.all(
+            width: isChoose == true ? Dimens.WIDTH_1 : 0,
+            color: isChoose == true ? AppColors.titleActive : AppColors.border,
+          ),
           borderRadius: BorderRadius.circular(Dimens.RADIUS_100)),
-      child: Center(child: Text(size)),
+      child: Center(
+        child: Text(
+          size.toUpperCase(),
+          style: TxtStyle.font10(
+            isChoose == true ? AppColors.background : AppColors.label,
+          ),
+        ),
+      ),
     );
   }
 }

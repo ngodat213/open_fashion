@@ -7,9 +7,11 @@ class TagBorder extends StatelessWidget {
   const TagBorder({
     Key? key,
     required this.title,
+    this.isSearch = false,
   }) : super(key: key);
 
   final String title;
+  final bool? isSearch;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +24,11 @@ class TagBorder extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(title, style: TxtStyle.font14(AppColors.body)),
-          SvgPicture.asset('res/icons/close.svg', width: 16, height: 16)
+          if (isSearch ?? true)
+            GestureDetector(
+                onTap: () {},
+                child: SvgPicture.asset('res/icons/close.svg',
+                    width: 16, height: 16))
         ],
       ),
     );

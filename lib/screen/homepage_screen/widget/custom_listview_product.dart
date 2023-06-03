@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../../model/item.dart';
+import '../../../model/product.dart';
 import '../../../theme/colors.dart';
 import '../../../theme/txt_styles.dart';
 import 'custom_divider.dart';
@@ -12,7 +12,7 @@ class CustomJustForYou extends StatelessWidget {
     required this.items,
   });
 
-  final List<Item> items;
+  final List<Product> items;
 
   @override
   Widget build(BuildContext context) {

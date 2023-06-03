@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:open_fashion/model/user_ig.dart';
-import 'package:open_fashion/screen/homepage_screen/widget/custom_criteria.dart';
-
 import 'package:open_fashion/theme/colors.dart';
-import 'package:open_fashion/theme/txt_styles.dart';
+import 'package:open_fashion/widget/appbar.dart';
 import 'package:open_fashion/widget/header.dart';
 import 'package:open_fashion/widget/footer.dart';
 
@@ -15,9 +12,13 @@ import 'package:open_fashion/screen/homepage_screen/widget/custom_causel_slider.
 import 'package:open_fashion/screen/homepage_screen/widget/custom_gridview_brand.dart';
 import 'package:open_fashion/screen/homepage_screen/widget/custom_tabbar_type_item.dart';
 
+import '../../model/user_ig.dart';
 import '../../model/features.dart';
-import '../../model/item.dart';
+import '../../model/product.dart';
+import '../../widget/appbar.dart';
+import '../../widget/menu_navbar.dart';
 import 'widget/custom_listview_product.dart';
+import 'widget/features_app.dart';
 import 'widget/tag_trending.dart';
 
 class HomepageScreen extends StatefulWidget {
@@ -50,8 +51,18 @@ final listIg = [
   Instagram(imageUrl: 'res/images/avatarIg.png', username: 'mia'),
 ];
 
-final List<Item> listItem = [
-  Item(
+final List<Product> listItem = [
+  Product(
+    imageSlider: [
+      'res/images/product.png',
+      'res/images/product.png',
+      'res/images/product.png'
+    ],
+    productColor: [
+      AppColors.productBlack,
+      AppColors.productOrange,
+      AppColors.productGrey,
+    ],
     thumbUrl: 'res/images/product.png',
     name: '21WN ',
     title: 'reversible angora cardigan',
@@ -59,24 +70,54 @@ final List<Item> listItem = [
     ratting: 10,
     size: ['s', 'm', 'l'],
   ),
-  Item(
-    thumbUrl: 'res/images/item.png',
+  Product(
+    imageSlider: [
+      'res/images/product.png',
+      'res/images/product.png',
+      'res/images/product.png'
+    ],
+    productColor: [
+      AppColors.productBlack,
+      AppColors.productOrange,
+      AppColors.productGrey,
+    ],
+    thumbUrl: 'res/images/product.png',
     name: '21WN ',
     title: 'reversible angora cardigan',
     price: 120,
     ratting: 10,
     size: ['s', 'm', 'l'],
   ),
-  Item(
-    thumbUrl: 'res/images/item.png',
+  Product(
+    imageSlider: [
+      'res/images/product.png',
+      'res/images/product.png',
+      'res/images/product.png'
+    ],
+    productColor: [
+      AppColors.productBlack,
+      AppColors.productOrange,
+      AppColors.productGrey,
+    ],
+    thumbUrl: 'res/images/product.png',
     name: '21WN ',
     title: 'reversible angora cardigan',
     price: 120,
     ratting: 10,
     size: ['s', 'm', 'l'],
   ),
-  Item(
-    thumbUrl: 'res/images/item.png',
+  Product(
+    imageSlider: [
+      'res/images/product.png',
+      'res/images/product.png',
+      'res/images/product.png'
+    ],
+    productColor: [
+      AppColors.productBlack,
+      AppColors.productOrange,
+      AppColors.productGrey,
+    ],
+    thumbUrl: 'res/images/product.png',
     name: '21WN ',
     title: 'reversible angora cardigan',
     price: 120,
@@ -126,12 +167,12 @@ class _HomepageScreenState extends State<HomepageScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: CustomAppbar(),
       backgroundColor: AppColors.offWhite,
       body: SingleChildScrollView(
         child: SafeArea(
           child: Column(
             children: [
-              HeaderWidget(),
               CustomCauselSlider(urlImages),
               TabBarTypeItem(tabController: _tabController, items: listItem),
               CustomDivider(),
@@ -140,48 +181,16 @@ class _HomepageScreenState extends State<HomepageScreen>
               CustomCollection(),
               CustomJustForYou(items: listItem),
               TagTrending(tags: tags),
-              Column(
-                children: [
-                  SizedBox(height: 64),
-                  Image.asset('res/images/logo.png'),
-                  Container(
-                    margin: EdgeInsets.only(top: 16),
-                    width: 280,
-                    child: Text(
-                      'Making a luxurious lifestyle accessible for a generous group of women is our daily drive.',
-                      textAlign: TextAlign.center,
-                      style: TxtStyle.font14(AppColors.titleActive),
-                    ),
-                  ),
-                  CustomDivider(),
-                  SizedBox(height: 25),
-                  GridView.builder(
-                    physics: NeverScrollableScrollPhysics(),
-                    shrinkWrap: true,
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      crossAxisSpacing: 13,
-                      mainAxisSpacing: 11,
-                      mainAxisExtent: 68,
-                    ),
-                    itemCount: features.length,
-                    itemBuilder: (context, index) {
-                      return CustomCriteria(
-                        features[index].imagePath,
-                        features[index].title,
-                      );
-                    },
-                  ),
-                  SizedBox(height: 33),
-                  Image.asset('res/images/end.png')
-                ],
-              ),
+              FeaturesApp(features: features),
               SizedBox(height: 35),
               CustomGridviewIg(listIg: listIg),
               FooterWidget()
             ],
           ),
         ),
+      ),
+      drawer: MenuNavbar(
+        tabController: _tabController,
       ),
     );
   }

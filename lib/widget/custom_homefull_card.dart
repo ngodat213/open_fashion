@@ -4,14 +4,11 @@ import 'package:open_fashion/theme/colors.dart';
 import 'package:open_fashion/theme/txt_styles.dart';
 import 'package:open_fashion/theme/dimens.dart';
 
-import '../model/item.dart';
+import '../model/product.dart';
 
 class HomefullCard extends StatelessWidget {
-  const HomefullCard(
-      {required this.item,
-      this.favorite,
-      super.key});
-  final Item item;
+  const HomefullCard({required this.item, this.favorite, super.key});
+  final Product item;
   final bool? favorite;
 
   @override
@@ -50,7 +47,8 @@ class HomefullCard extends StatelessWidget {
                       style: TxtStyle.font12(AppColors.titleActive)),
                 ),
                 SizedBox(height: Dimens.HEIGHT_4),
-                Text('\$${item.price}', style: TxtStyle.font15(AppColors.secondary)),
+                Text('\$${item.price}',
+                    style: TxtStyle.font15(AppColors.secondary)),
               ],
             ),
           ),

@@ -1,23 +1,31 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:open_fashion/theme/txt_styles.dart';
-import 'package:open_fashion/theme/dimens.dart';
+
+import 'package:open_fashion/model/blog.dart';
 import 'package:open_fashion/theme/colors.dart';
+import 'package:open_fashion/theme/dimens.dart';
+import 'package:open_fashion/theme/txt_styles.dart';
 import 'package:open_fashion/widget/custom_tag_fill.dart';
 
 class GridViewBlog extends StatelessWidget {
-  const GridViewBlog({super.key});
+  const GridViewBlog({
+    Key? key,
+    required this.blog,
+  }) : super(key: key);
+  final Blog blog;
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: EdgeInsets.only(bottom: 28),
       width: Dimens.WIDTH_343,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Stack(
             children: [
-              Image.asset('res/images/blog_image.png'),
+              Image.asset(blog.thumb),
               Positioned(
                 top: 11,
                 right: 8,
@@ -36,8 +44,7 @@ class GridViewBlog extends StatelessWidget {
                   child: Padding(
                     padding: EdgeInsets.only(left: 14, top: 33, right: 14),
                     child: Text(
-                      '2021 Style Guide: The Biggest\nFall Trends'
-                          .toUpperCase(),
+                      blog.title.toUpperCase(),
                       style: TxtStyle.font14(AppColors.offWhite),
                     ),
                   ),
@@ -49,12 +56,9 @@ class GridViewBlog extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Row(
-                children: [
-                  TagFill(title: '#Fashion'),
-                  TagFill(title: '#Tips'),
-                ],
+                children: blog.types.map((e) => TagFill(title: e)).toList(),
               ),
-              Text('4 days ago')
+              Text('${blog.timePost} days ago')
             ],
           ),
         ],
