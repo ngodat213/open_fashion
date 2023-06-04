@@ -23,7 +23,7 @@ class Dimens {
   static const HEIGHT_285 = 285.0;
   static const HEIGHT_340 = 340.0;
   static const HEIGHT_457 = 457.0;
-  static const HEIGHT_551 = 551.0;
+  static const HEIGHT_511 = 511.0;
 
   // WIDTH
   static const WIDTH_1 = 1.0;

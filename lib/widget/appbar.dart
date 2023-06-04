@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:open_fashion/manager/manager_routes.dart';
+import 'package:open_fashion/utils/base_navigation.dart';
 
 class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppbar({super.key});
@@ -12,8 +14,13 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
         child: Stack(
           children: [
             Positioned.fill(
-              child:
-                  Center(child: Image.asset("res/images/logo.png", width: 100)),
+              child: InkWell(
+                  onTap: () {
+                    BaseNavigation.push(context,
+                        routeName: ManagerRoutes.homePage);
+                  },
+                  child: Center(
+                      child: Image.asset("res/images/logo.png", width: 100))),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -27,7 +34,7 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
                   children: [
                     IconButton(
                       onPressed: () {
-                        Scaffold.of(context).openDrawer();
+                        Scaffold.of(context).openEndDrawer();
                       },
                       icon: SvgPicture.asset("res/icons/search.svg"),
                     ),

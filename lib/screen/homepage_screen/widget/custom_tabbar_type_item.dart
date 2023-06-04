@@ -6,6 +6,7 @@ import 'package:open_fashion/theme/txt_styles.dart';
 import 'package:open_fashion/widget/custom_homefull_card.dart';
 
 import '../../../model/product.dart';
+import '../../category_view_screen/category_view_screen.dart';
 import 'custom_divider.dart';
 
 class TabBarTypeItem extends StatelessWidget {
@@ -88,23 +89,32 @@ class custom_item_tabbarview extends StatelessWidget {
             itemCount: items.length,
             itemBuilder: (_, index) {
               return HomefullCard(
-                item: items[index],
+                product: items[index],
               );
             },
           ),
         ),
-        Container(
-          width: 155,
-          height: 48,
-          alignment: Alignment.center,
-          child: Center(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text('Explore More'),
-                SvgPicture.asset('res/icons/forward_arrow.svg',
-                    color: AppColors.titleActive, width: 18)
-              ],
+        InkWell(
+          onTap: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => CategoryView(),
+              ),
+            );
+          },
+          child: Container(
+            width: 155,
+            height: 48,
+            alignment: Alignment.center,
+            child: Center(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text('Explore More'),
+                  SvgPicture.asset('res/icons/forward_arrow.svg',
+                      color: AppColors.titleActive, width: 18)
+                ],
+              ),
             ),
           ),
         ),

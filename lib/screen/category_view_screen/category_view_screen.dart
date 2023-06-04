@@ -1,15 +1,19 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:number_paginator/number_paginator.dart';
 import 'package:open_fashion/model/product.dart';
 import 'package:open_fashion/screen/homepage_screen/homepage_screen.dart';
 import 'package:open_fashion/theme/colors.dart';
 import 'package:open_fashion/theme/txt_styles.dart';
 import 'package:open_fashion/widget/appbar.dart';
 import 'package:open_fashion/widget/custom_gridview_card.dart';
+import 'package:open_fashion/widget/custom_gridview_card_full.dart';
 import 'package:open_fashion/widget/custom_listview_card.dart';
 import 'package:open_fashion/widget/footer.dart';
 
 import '../../widget/custom_tag_border.dart';
+import 'widget/custom_button_circle.dart';
 
 class CategoryView extends StatefulWidget {
   const CategoryView({super.key});
@@ -19,9 +23,6 @@ class CategoryView extends StatefulWidget {
 }
 
 class _CategoryViewState extends State<CategoryView> {
-  //
-
-  bool isGrid = true;
   final List<String> types = [
     'Women',
     'All apparel',
@@ -99,11 +100,161 @@ class _CategoryViewState extends State<CategoryView> {
       price: 120,
       ratting: 4.8,
       size: ['s', 'm', 'l'],
+    ),
+    new Product(
+      imageSlider: [
+        'res/images/product.png',
+        'res/images/product.png',
+        'res/images/product.png'
+      ],
+      productColor: [
+        AppColors.productBlack,
+        AppColors.productOrange,
+        AppColors.productGrey,
+      ],
+      thumbUrl: 'res/images/product.png',
+      name: '21WN',
+      title: 'Reversible Angora Cardigan',
+      price: 120,
+      ratting: 4.8,
+      size: ['s', 'm', 'l'],
+    ),
+    new Product(
+      imageSlider: [
+        'res/images/product.png',
+        'res/images/product.png',
+        'res/images/product.png'
+      ],
+      productColor: [
+        AppColors.productBlack,
+        AppColors.productOrange,
+        AppColors.productGrey,
+      ],
+      thumbUrl: 'res/images/product.png',
+      name: '21WN',
+      title: 'Reversible Angora Cardigan',
+      price: 120,
+      ratting: 4.8,
+      size: ['s', 'm', 'l'],
+    ),
+    new Product(
+      imageSlider: [
+        'res/images/product.png',
+        'res/images/product.png',
+        'res/images/product.png'
+      ],
+      productColor: [
+        AppColors.productBlack,
+        AppColors.productOrange,
+        AppColors.productGrey,
+      ],
+      thumbUrl: 'res/images/product.png',
+      name: '21WN',
+      title: 'Reversible Angora Cardigan',
+      price: 120,
+      ratting: 4.8,
+      size: ['s', 'm', 'l'],
+    ),
+    new Product(
+      imageSlider: [
+        'res/images/product.png',
+        'res/images/product.png',
+        'res/images/product.png'
+      ],
+      productColor: [
+        AppColors.productBlack,
+        AppColors.productOrange,
+        AppColors.productGrey,
+      ],
+      thumbUrl: 'res/images/product.png',
+      name: '21WN',
+      title: 'Reversible Angora Cardigan',
+      price: 120,
+      ratting: 4.8,
+      size: ['s', 'm', 'l'],
+    ),
+    new Product(
+      imageSlider: [
+        'res/images/product.png',
+        'res/images/product.png',
+        'res/images/product.png'
+      ],
+      productColor: [
+        AppColors.productBlack,
+        AppColors.productOrange,
+        AppColors.productGrey,
+      ],
+      thumbUrl: 'res/images/product.png',
+      name: '21WN',
+      title: 'Reversible Angora Cardigan',
+      price: 120,
+      ratting: 4.8,
+      size: ['s', 'm', 'l'],
+    ),
+    new Product(
+      imageSlider: [
+        'res/images/product.png',
+        'res/images/product.png',
+        'res/images/product.png'
+      ],
+      productColor: [
+        AppColors.productBlack,
+        AppColors.productOrange,
+        AppColors.productGrey,
+      ],
+      thumbUrl: 'res/images/product.png',
+      name: '21WN',
+      title: 'Reversible Angora Cardigan',
+      price: 120,
+      ratting: 4.8,
+      size: ['s', 'm', 'l'],
+    ),
+    new Product(
+      imageSlider: [
+        'res/images/product.png',
+        'res/images/product.png',
+        'res/images/product.png'
+      ],
+      productColor: [
+        AppColors.productBlack,
+        AppColors.productOrange,
+        AppColors.productGrey,
+      ],
+      thumbUrl: 'res/images/product.png',
+      name: '21WN',
+      title: 'Reversible Angora Cardigan',
+      price: 120,
+      ratting: 4.8,
+      size: ['s', 'm', 'l'],
     )
   ];
 
+  late List<Product> product = products.sublist(0, numberOfProductsPerPage);
+
+  void onPageSelected(int page) {
+    setState(() {
+      print(page);
+      currentPage = page;
+      int startIndex = page * numberOfProductsPerPage;
+      int endIndex = startIndex + numberOfProductsPerPage;
+      if (startIndex < products.length) {
+        if (endIndex > products.length) {
+          endIndex = products.length;
+        }
+        product = products.sublist(startIndex, endIndex);
+      } else {
+        product = [];
+      }
+    });
+  }
+
+  int numberOfProductsPerPage = 10;
+  int isGrid = 0;
+  int currentPage = 0;
   @override
   Widget build(BuildContext context) {
+    final int numberOfPages =
+        (products.length / numberOfProductsPerPage).ceil();
     return Scaffold(
       appBar: CustomAppbar(),
       body: SafeArea(
@@ -122,6 +273,18 @@ class _CategoryViewState extends State<CategoryView> {
                 ),
                 SizedBox(height: 17),
                 buildList(),
+                NumberPaginator(
+                  config: NumberPaginatorUIConfig(
+                      buttonSelectedBackgroundColor: AppColors.body,
+                      buttonSelectedForegroundColor: AppColors.offWhite,
+                      buttonUnselectedBackgroundColor:
+                          AppColors.placeholder.withOpacity(0.1),
+                      buttonUnselectedForegroundColor: AppColors.label,
+                      buttonShape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.zero)),
+                  numberPages: numberOfPages,
+                  onPageChange: onPageSelected,
+                ),
                 FooterWidget(),
               ],
             ),
@@ -135,16 +298,24 @@ class _CategoryViewState extends State<CategoryView> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text('4500 APPAREL', style: TxtStyle.font14(AppColors.titleActive)),
+        Text('${products.length} APPAREL',
+            style: TxtStyle.font14(AppColors.titleActive)),
         Row(
           children: [
             CustomButtonCircle(
-              iconPath: isGrid == true
+              iconPath: isGrid == 0
                   ? 'res/icons/Listview.svg'
-                  : 'res/icons/grid view.svg',
+                  : isGrid == 1
+                      ? 'res/icons/Gallery.svg'
+                      : 'res/icons/grid view.svg',
               onTap: () {
                 setState(() {
-                  isGrid = !isGrid;
+                  if (isGrid == 2) {
+                    isGrid = 0;
+                    numberOfProductsPerPage = 5;
+                  } else {
+                    isGrid++;
+                  }
                 });
               },
             ),
@@ -164,7 +335,7 @@ class _CategoryViewState extends State<CategoryView> {
     );
   }
 
-  Widget buildList() => isGrid
+  Widget buildList() => isGrid == 0
       ? GridView.builder(
           physics: NeverScrollableScrollPhysics(),
           shrinkWrap: true,
@@ -174,46 +345,17 @@ class _CategoryViewState extends State<CategoryView> {
             crossAxisSpacing: 12,
             mainAxisExtent: 280,
           ),
-          itemCount: products.length,
+          itemCount: product.length,
           itemBuilder: (context, index) {
-            return GridViewCard(product: products[index]);
+            return GridViewCard(product: product[index]);
           },
         )
-      : Column(
-          children: products.map((e) => ListViewCard(product: e)).toList(),
-        );
-}
-
-class CustomButtonCircle extends StatelessWidget {
-  const CustomButtonCircle({
-    super.key,
-    required this.iconPath,
-    required this.onTap,
-  });
-  final String iconPath;
-  final Function onTap;
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        onTap.call();
-      },
-      child: Container(
-        width: 36,
-        height: 36,
-        decoration: BoxDecoration(
-          color: AppColors.footer.withOpacity(0.1),
-          borderRadius: BorderRadius.circular(100),
-        ),
-        child: Center(
-          child: Container(
-            width: 20,
-            height: 20,
-            child: SvgPicture.asset(iconPath),
-          ),
-        ),
-      ),
-    );
-  }
+      : isGrid == 1
+          ? Column(
+              children: product.map((e) => ListViewCard(product: e)).toList(),
+            )
+          : Column(
+              children:
+                  product.map((e) => GridViewCardFull(product: e)).toList(),
+            );
 }

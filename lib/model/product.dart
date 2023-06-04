@@ -20,4 +20,15 @@ class Product {
     required this.ratting,
     required this.size,
   });
+
+  Map toJson() {
+    return {
+      'productName': name,
+      'productTitle': title,
+      'productPrice': price,
+      'productThumb': thumbUrl,
+    };
+  }
+
+  // Product.fromJson(Map<String, dynamic> json) {}
 }

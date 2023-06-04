@@ -3,13 +3,14 @@ import 'package:flutter_svg/svg.dart';
 import 'package:open_fashion/theme/colors.dart';
 
 class CustomTextIcon extends StatelessWidget {
-  const CustomTextIcon({
+  const CustomTextIcon(
+    this.text, {
     super.key,
     this.prefix = "",
     this.suffix = "",
     this.colorIcon = AppColors.titleActive,
     this.size = 24,
-    required this.text,
+    this.magin,
     required this.style,
   });
   final Color? colorIcon;
@@ -17,11 +18,12 @@ class CustomTextIcon extends StatelessWidget {
   final String? prefix;
   final String? suffix;
   final double? size;
+  final EdgeInsetsGeometry? magin;
   final TextStyle style;
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(bottom: 16),
+      margin: magin,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisSize: MainAxisSize.min,

@@ -1,24 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:open_fashion/model/product.dart';
 import 'package:open_fashion/theme/colors.dart';
 import 'package:open_fashion/theme/txt_styles.dart';
 import 'package:open_fashion/theme/dimens.dart';
 
 class GridViewCardFull extends StatelessWidget {
-  const GridViewCardFull({super.key});
+  const GridViewCardFull({
+    super.key,
+    required this.product,
+  });
+  final Product product;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: Dimens.HEIGHT_551,
+      height: Dimens.HEIGHT_511,
       width: Dimens.WIDTH_343,
+      margin: EdgeInsets.only(bottom: 30),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Stack(
             children: [
               Image.asset(
-                'res/images/item_full.png',
+                product.imageSlider[0],
                 width: Dimens.WIDTH_343,
                 height: Dimens.HEIGHT_457,
                 fit: BoxFit.cover,
@@ -34,14 +40,14 @@ class GridViewCardFull extends StatelessWidget {
               )
             ],
           ),
-          Text('21WN'.toUpperCase(),
+          Text(product.name.toUpperCase(),
               style: TxtStyle.font18(AppColors.titleActive)),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('Reversible Angora Cardigan',
-                  style: TxtStyle.font16(AppColors.label)),
-              Text('\$120', style: TxtStyle.font18(AppColors.secondary)),
+              Text(product.title, style: TxtStyle.font16(AppColors.label)),
+              Text('\$${product.price}',
+                  style: TxtStyle.font18(AppColors.secondary)),
             ],
           ),
         ],

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'package:open_fashion/theme/colors.dart';
 import 'package:open_fashion/widget/appbar.dart';
-import 'package:open_fashion/widget/header.dart';
 import 'package:open_fashion/widget/footer.dart';
 
 import 'package:open_fashion/screen/homepage_screen/widget/custom_divider.dart';
@@ -11,12 +10,12 @@ import 'package:open_fashion/screen/homepage_screen/widget/custom_gridview_ig.da
 import 'package:open_fashion/screen/homepage_screen/widget/custom_causel_slider.dart';
 import 'package:open_fashion/screen/homepage_screen/widget/custom_gridview_brand.dart';
 import 'package:open_fashion/screen/homepage_screen/widget/custom_tabbar_type_item.dart';
+import 'package:open_fashion/widget/search_drawer.dart';
 
 import '../../model/user_ig.dart';
 import '../../model/features.dart';
 import '../../model/product.dart';
-import '../../widget/appbar.dart';
-import '../../widget/menu_navbar.dart';
+import '../../widget/menu_drawer.dart';
 import 'widget/custom_listview_product.dart';
 import 'widget/features_app.dart';
 import 'widget/tag_trending.dart';
@@ -168,6 +167,8 @@ class _HomepageScreenState extends State<HomepageScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppbar(),
+      drawer: MenuDrawer(),
+      endDrawer: SearchDrawer(),
       backgroundColor: AppColors.offWhite,
       body: SingleChildScrollView(
         child: SafeArea(
@@ -188,9 +189,6 @@ class _HomepageScreenState extends State<HomepageScreen>
             ],
           ),
         ),
-      ),
-      drawer: MenuNavbar(
-        tabController: _tabController,
       ),
     );
   }

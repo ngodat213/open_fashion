@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:open_fashion/manager/manager_routes.dart';
+import 'package:open_fashion/screen/blog_post_screen/blog_post_screen.dart';
 import 'package:open_fashion/screen/homepage_screen/homepage_screen.dart';
 import 'package:open_fashion/theme/colors.dart';
 import 'package:open_fashion/theme/dimens.dart';
 import 'package:open_fashion/theme/txt_styles.dart';
+import 'package:open_fashion/utils/base_navigation.dart';
 
 class CustomCauselSlider extends StatefulWidget {
   const CustomCauselSlider(this.urlImages, {super.key});
@@ -24,7 +27,12 @@ class _CustomCauselSliderState extends State<CustomCauselSlider> {
         itemBuilder: (context, index, realIndex) {
           final urlImage = widget.urlImages[index];
           final len = urlImages.length;
-          return SliderBanner(urlImage: urlImage, len: len, index: index);
+          return SliderBanner(
+            urlImage: urlImage,
+            len: len,
+            index: index,
+            context: context,
+          );
         },
         options: CarouselOptions(
           height: 600,
@@ -43,8 +51,9 @@ class SliderBanner extends StatelessWidget {
     required this.urlImage,
     required this.len,
     required this.index,
+    required this.context,
   });
-
+  final BuildContext context;
   final String urlImage;
   final int len, index;
 
@@ -52,10 +61,26 @@ class SliderBanner extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Container(
-          decoration: BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage(urlImage), fit: BoxFit.fitHeight),
+        InkWell(
+          onTap: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => BlogPostScreen(fashionPost: [
+                  'res/images/image_slider.png',
+                  'res/images/image_slider.png',
+                  'res/images/image_slider.png'
+                ], tags: [
+                  '#Fashion',
+                  '#Tips',
+                ]),
+              ),
+            );
+          },
+          child: Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage(urlImage), fit: BoxFit.fitHeight),
+            ),
           ),
         ),
         Positioned(
@@ -90,20 +115,25 @@ class SliderBanner extends StatelessWidget {
     );
   }
 
-  Container _btnExploreCollection() {
-    return Container(
-      width: 253,
-      height: 40,
-      margin: EdgeInsets.only(bottom: 14),
-      decoration: BoxDecoration(
-        color: AppColors.titleActive.withOpacity(0.4),
-        borderRadius: BorderRadius.circular(Dimens.RADIUS_100),
+  InkWell _btnExploreCollection() {
+    return InkWell(
+      onTap: () {
+        BaseNavigation.push(context, routeName: ManagerRoutes.blogScreen);
+      },
+      child: Container(
+        width: 253,
+        height: 40,
+        margin: EdgeInsets.only(bottom: 14),
+        decoration: BoxDecoration(
+          color: AppColors.titleActive.withOpacity(0.4),
+          borderRadius: BorderRadius.circular(Dimens.RADIUS_100),
+        ),
+        child: Center(
+            child: Text(
+          'Explore Collection'.toUpperCase(),
+          style: TxtStyle.font16(AppColors.offWhite),
+        )),
       ),
-      child: Center(
-          child: Text(
-        'Explore Collection'.toUpperCase(),
-        style: TxtStyle.font16(AppColors.offWhite),
-      )),
     );
   }
 }

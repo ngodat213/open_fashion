@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:open_fashion/manager/manager_routes.dart';
-import 'screen/category_view_screen/category_view_screen.dart';
+import 'package:open_fashion/screen/homepage_screen/homepage_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,9 +20,7 @@ class MyApp extends StatelessWidget {
     final List<String> tags = ['#Fashion', '#Tips'];
     return MaterialApp(
       routes: ManagerRoutes.manager,
-      home: CategoryView(),
-      // BlogScreen(),
-      // BlogPostScreen(fashionPost: urlImages, tags: tags),
+      home: HomepageScreen(),
     );
   }
 }

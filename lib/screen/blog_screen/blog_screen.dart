@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:open_fashion/manager/manager_routes.dart';
 import 'package:open_fashion/model/blog.dart';
 import 'package:open_fashion/theme/colors.dart';
 import 'package:open_fashion/theme/txt_styles.dart';
+import 'package:open_fashion/utils/base_navigation.dart';
 import 'package:open_fashion/widget/appbar.dart';
 import 'package:open_fashion/widget/custom_gridview_blog.dart';
 import 'package:open_fashion/widget/footer.dart';
@@ -92,7 +94,13 @@ class BlogScreen extends StatelessWidget {
               Column(
                 children: listBlog.map((e) => GridViewBlog(blog: e)).toList(),
               ),
-              CustomOutlineButton(),
+              CustomOutlineButton(
+                text: 'Load more',
+                onPressed: () {
+                  BaseNavigation.push(context,
+                      routeName: ManagerRoutes.blogScreen);
+                },
+              ),
               FooterWidget()
             ],
           ),

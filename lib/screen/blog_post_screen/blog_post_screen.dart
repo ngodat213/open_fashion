@@ -72,7 +72,7 @@ class _BlogPostScreenState extends State<BlogPostScreen> {
                               decoration: BoxDecoration(
                                 image: DecorationImage(
                                     image:
-                                        NetworkImage(widget.fashionPost[index]),
+                                        AssetImage(widget.fashionPost[index]),
                                     fit: BoxFit.fitHeight),
                               ),
                             ),
