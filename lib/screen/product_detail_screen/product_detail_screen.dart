@@ -4,15 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 import 'package:open_fashion/model/product.dart';
-import 'package:open_fashion/screen/homepage_screen/widget/custom_divider.dart';
 import 'package:open_fashion/theme/colors.dart';
 import 'package:open_fashion/theme/txt_styles.dart';
 import 'package:open_fashion/widget/appbar.dart';
+import 'package:open_fashion/widget/base_text.dart';
 import 'package:open_fashion/widget/custom_size_button.dart';
 import 'package:open_fashion/widget/footer.dart';
 
 import '../../widget/custom_button_add2basket.dart';
-import '../../widget/custom_gridview_card.dart';
 import 'widget/custom_choose_color.dart';
 import 'widget/custom_material_detail.dart';
 import 'widget/product_recommend.dart';
@@ -48,7 +47,7 @@ final List<Product> products = [
     name: '21WN',
     title: 'Reversible Angora Cardigan',
     price: 120,
-    ratting: 4.8,
+    rating: 4,
     size: ['s', 'm', 'l'],
   ),
   new Product(
@@ -66,7 +65,7 @@ final List<Product> products = [
     name: '21WN',
     title: 'Reversible Angora Cardigan',
     price: 120,
-    ratting: 4.8,
+    rating: 4,
     size: ['s', 'm', 'l'],
   ),
   new Product(
@@ -84,7 +83,7 @@ final List<Product> products = [
     name: '21WN',
     title: 'Reversible Angora Cardigan',
     price: 120,
-    ratting: 4.8,
+    rating: 4,
     size: ['s', 'm', 'l'],
   ),
   new Product(
@@ -102,7 +101,7 @@ final List<Product> products = [
     name: '21WN',
     title: 'Reversible Angora Cardigan',
     price: 120,
-    ratting: 4.8,
+    rating: 4,
     size: ['s', 'm', 'l'],
   )
 ];
@@ -117,7 +116,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
           child: Column(
             children: [
               CarouselSlider.builder(
-                itemCount: widget.product.imageSlider.length,
+                itemCount: widget.product.imageSlider?.length,
                 options: CarouselOptions(
                   height: 600,
                   viewportFraction: 1,
@@ -135,8 +134,8 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                         margin: EdgeInsets.only(top: 15, bottom: 15),
                         decoration: BoxDecoration(
                           image: DecorationImage(
-                              image:
-                                  AssetImage(widget.product.imageSlider[index]),
+                              image: AssetImage(
+                                  widget.product.imageSlider![index]),
                               fit: BoxFit.fitHeight),
                         ),
                       ),
@@ -147,7 +146,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: List.generate(
-                    widget.product.imageSlider.length,
+                    widget.product.imageSlider!.length,
                     (i) => Container(
                           margin: EdgeInsets.only(left: 5),
                           child: SvgPicture.asset(
@@ -167,7 +166,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          widget.product.name.toUpperCase(),
+                          widget.product.name!.toUpperCase(),
                           style: TxtStyle.font16(AppColors.titleActive),
                         ),
                         SvgPicture.asset(
@@ -179,7 +178,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                     ),
                     SizedBox(height: 8),
                     Text(
-                      widget.product.title,
+                      widget.product.title!,
                       style: TxtStyle.font16(AppColors.titleActive),
                     ),
                     SizedBox(height: 8),
@@ -191,8 +190,8 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        selectColor(),
-                        selectSize(),
+                        _selectColor(),
+                        _selectSize(),
                       ],
                     )
                   ],
@@ -201,6 +200,34 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
               SizedBox(height: 33),
               AddToBesket(),
               CustomMaterialDetail(),
+              Container(
+                margin: EdgeInsets.only(left: 20, top: 40),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Care'.toUpperCase(),
+                      style: TxtStyle.font14(AppColors.titleActive),
+                    ),
+                    _customExpansionTile(
+                      'Free Flat Rate Shipping',
+                      prefix: 'res/icons/Shipping.svg',
+                      description:
+                          'Estimated to be delivered on 09/11/2021 - 12/11/2021.',
+                    ),
+                    _customExpansionTile(
+                      'COD Policy',
+                      prefix: 'res/icons/Tag.svg',
+                      description: 'COD Policy',
+                    ),
+                    _customExpansionTile(
+                      'Return Policy',
+                      prefix: 'res/icons/Refresh.svg',
+                      description: 'COD Policy',
+                    ),
+                  ],
+                ),
+              ),
               SizedBox(height: 70),
               ProductRecommend(products: products),
               FooterWidget()
@@ -211,7 +238,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
     );
   }
 
-  Row selectSize() {
+  Row _selectSize() {
     return Row(
       children: [
         Text(
@@ -221,14 +248,14 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: List.generate(
-              widget.product.size.length,
+              widget.product.size!.length,
               (i) => InkWell(
                     onTap: () {
                       chooseSize = i;
                       setState(() {});
                     },
                     child: ButtonSize(
-                      size: widget.product.size[i],
+                      size: widget.product.size![i],
                       isChoose: chooseSize == i ? true : false,
                     ),
                   )).toList(),
@@ -237,7 +264,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
     );
   }
 
-  Row selectColor() {
+  Row _selectColor() {
     return Row(
       children: [
         Text(
@@ -247,18 +274,62 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: List.generate(
-              widget.product.productColor.length,
+              widget.product.productColor!.length,
               (i) => InkWell(
                     onTap: () {
                       chooseColor = i;
                       setState(() {});
                     },
                     child: CustomChooseColor(
-                      color: widget.product.productColor[i],
+                      color: widget.product.productColor![i],
                       isChoose: chooseColor == i ? true : false,
                     ),
                   )).toList(),
         ),
+      ],
+    );
+  }
+}
+
+class _customExpansionTile extends StatelessWidget {
+  const _customExpansionTile(
+    this.title, {
+    required this.prefix,
+    required this.description,
+    super.key,
+  });
+  final String? prefix;
+  final String? title;
+  final String? description;
+  @override
+  Widget build(BuildContext context) {
+    return ExpansionTile(
+      tilePadding: EdgeInsets.only(left: 0, right: 20),
+      title: Row(
+        children: [
+          SvgPicture.asset(
+            prefix ?? '',
+            width: 24,
+          ),
+          SizedBox(width: 10),
+          BaseText(
+            title,
+            style: TxtStyle.font14(AppColors.body),
+          ),
+        ],
+      ),
+      expandedAlignment: Alignment.topLeft,
+      children: [
+        Container(
+          width: 260,
+          height: 50,
+          margin: EdgeInsets.only(left: 34),
+          alignment: Alignment.topLeft,
+          child: BaseText(
+            description,
+            style: TxtStyle.font14(AppColors.body),
+          ),
+        )
       ],
     );
   }

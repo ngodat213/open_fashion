@@ -25,7 +25,12 @@ class TagTrending extends StatelessWidget {
         Wrap(
           spacing: 10,
           runSpacing: 10,
-          children: tags.map((e) => TagFill(title: e)).toList(),
+          children: tags
+              .map((e) => TagFill(
+                    title: e,
+                    onPressed: () {},
+                  ))
+              .toList(),
         )
       ],
     );

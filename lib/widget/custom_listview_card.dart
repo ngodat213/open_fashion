@@ -38,7 +38,7 @@ class ListViewCard extends StatelessWidget {
             height: Dimens.HEIGHT_134,
             width: Dimens.WIDTH_100,
             decoration: BoxDecoration(
-                image: DecorationImage(image: AssetImage(product.thumbUrl))),
+                image: DecorationImage(image: AssetImage(product.thumbUrl!))),
           ),
           Container(
             width: MediaQuery.of(context).size.width - 143,
@@ -46,10 +46,10 @@ class ListViewCard extends StatelessWidget {
             child:
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               SizedBox(height: Dimens.HEIGHT_7),
-              Text(product.name.toUpperCase(),
+              Text(product.name!.toUpperCase(),
                   style: TxtStyle.font14(AppColors.titleActive)),
               SizedBox(height: Dimens.HEIGHT_6),
-              Text(product.title,
+              Text(product.title!,
                   style: TxtStyle.font12(AppColors.titleActive)),
               SizedBox(height: Dimens.HEIGHT_4),
               Text('\$${product.price}',
@@ -70,7 +70,7 @@ class ListViewCard extends StatelessWidget {
       Row(children: [
         Text('Size', style: TxtStyle.font12(AppColors.label)),
         Row(
-            children: product.size
+            children: product.size!
                 .map((e) => ButtonSize(size: e.toUpperCase()))
                 .toList())
       ]),
@@ -96,7 +96,7 @@ class ListViewCard extends StatelessWidget {
           ),
         ),
         TextSpan(
-          text: '${product.ratting} Ratings',
+          text: '${product.rating} Ratings',
           style: TxtStyle.font12(AppColors.label),
         )
       ]),

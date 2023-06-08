@@ -9,14 +9,25 @@ import '../../../model/product.dart';
 import '../../category_view_screen/category_view_screen.dart';
 import 'custom_divider.dart';
 
-class TabBarTypeItem extends StatelessWidget {
+class TabBarTypeItem extends StatefulWidget {
   const TabBarTypeItem({
     super.key,
-    required TabController tabController,
     required this.items,
-  }) : _tabController = tabController;
+  });
   final List<Product> items;
-  final TabController _tabController;
+
+  @override
+  State<TabBarTypeItem> createState() => _TabBarTypeItemState();
+}
+
+class _TabBarTypeItemState extends State<TabBarTypeItem>
+    with SingleTickerProviderStateMixin {
+  late TabController _tabController;
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(length: 5, vsync: this);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -51,11 +62,11 @@ class TabBarTypeItem extends StatelessWidget {
               child: TabBarView(
             controller: _tabController,
             children: [
-              custom_item_tabbarview(this.items),
-              custom_item_tabbarview(this.items),
-              custom_item_tabbarview(this.items),
-              custom_item_tabbarview(this.items),
-              custom_item_tabbarview(this.items),
+              custom_item_tabbarview(this.widget.items),
+              custom_item_tabbarview(this.widget.items),
+              custom_item_tabbarview(this.widget.items),
+              custom_item_tabbarview(this.widget.items),
+              custom_item_tabbarview(this.widget.items),
             ],
           )),
         ],
@@ -86,7 +97,7 @@ class custom_item_tabbarview extends StatelessWidget {
               mainAxisSpacing: 11,
               mainAxisExtent: 265,
             ),
-            itemCount: items.length,
+            itemCount: 4,
             itemBuilder: (_, index) {
               return HomefullCard(
                 product: items[index],

@@ -7,12 +7,28 @@ import 'custom_criteria.dart';
 import 'custom_divider.dart';
 
 class FeaturesApp extends StatelessWidget {
-  const FeaturesApp({
+  FeaturesApp({
     super.key,
-    required this.features,
   });
 
-  final List<Features> features;
+  final List<Features> features = [
+    new Features(
+      'res/images/ms1.png',
+      'Fast shipping. Free on orders over \$25.',
+    ),
+    new Features(
+      'res/images/ms2.png',
+      'Sustainable process from start to finish.',
+    ),
+    new Features(
+      'res/images/ms3.png',
+      'Unique designs and high-quality materials.',
+    ),
+    new Features(
+      'res/images/ms4.png',
+      'Fast shipping. Free on orders over \$25.',
+    ),
+  ];
 
   @override
   Widget build(BuildContext context) {

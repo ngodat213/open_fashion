@@ -1,0 +1,272 @@
+[
+    {
+        "id": 1,
+        "imageSlider": [
+            "res/images/product.png",
+            "res/images/product.png",
+            "res/images/product.png"
+        ],
+        "productColor": [
+            "0xff0F140D",
+            "0xffDD8560",
+            "0xffE1E0DB"
+        ],
+        "thumbUrl": "res/images/product.png",
+        "name": "21WN",
+        "title": "reversible angora cardigan",
+        "price": 120,
+        "rating": 10,
+        "size": [
+            "s",
+            "m",
+            "l"
+        ],
+        "type": [
+            "Apparel",
+            "Dress"
+        ]
+    },
+    {
+        "id": 1,
+        "imageSlider": [
+            "res/images/product.png",
+            "res/images/product.png",
+            "res/images/product.png"
+        ],
+        "productColor": [
+            "0xff0F140D",
+            "0xffDD8560",
+            "0xffE1E0DB"
+        ],
+        "thumbUrl": "res/images/product.png",
+        "name": "21WN",
+        "title": "reversible angora cardigan",
+        "price": 120,
+        "rating": 10,
+        "size": [
+            "s",
+            "m",
+            "l"
+        ],
+        "type": [
+            "Apparel",
+            "Dress"
+        ]
+    },
+    {
+        "id": 1,
+        "imageSlider": [
+            "res/images/product.png",
+            "res/images/product.png",
+            "res/images/product.png"
+        ],
+        "productColor": [
+            "0xff0F140D",
+            "0xffDD8560",
+            "0xffE1E0DB"
+        ],
+        "thumbUrl": "res/images/product.png",
+        "name": "21WN",
+        "title": "reversible angora cardigan",
+        "price": 120,
+        "rating": 10,
+        "size": [
+            "s",
+            "m",
+            "l"
+        ],
+        "type": [
+            "Apparel",
+            "Dress"
+        ]
+    },
+    {
+        "id": 1,
+        "imageSlider": [
+            "res/images/product.png",
+            "res/images/product.png",
+            "res/images/product.png"
+        ],
+        "productColor": [
+            "0xff0F140D",
+            "0xffDD8560",
+            "0xffE1E0DB"
+        ],
+        "thumbUrl": "res/images/product.png",
+        "name": "21WN",
+        "title": "reversible angora cardigan",
+        "price": 120,
+        "rating": 10,
+        "size": [
+            "s",
+            "m",
+            "l"
+        ],
+        "type": [
+            "Apparel",
+            "Dress"
+        ]
+    },
+    {
+        "id": 1,
+        "imageSlider": [
+            "res/images/product.png",
+            "res/images/product.png",
+            "res/images/product.png"
+        ],
+        "productColor": [
+            "0xff0F140D",
+            "0xffDD8560",
+            "0xffE1E0DB"
+        ],
+        "thumbUrl": "res/images/product.png",
+        "name": "21WN",
+        "title": "reversible angora cardigan",
+        "price": 120,
+        "rating": 10,
+        "size": [
+            "s",
+            "m",
+            "l"
+        ],
+        "type": [
+            "Apparel",
+            "Dress"
+        ]
+    },
+    {
+        "id": 1,
+        "imageSlider": [
+            "res/images/product.png",
+            "res/images/product.png",
+            "res/images/product.png"
+        ],
+        "productColor": [
+            "0xff0F140D",
+            "0xffDD8560",
+            "0xffE1E0DB"
+        ],
+        "thumbUrl": "res/images/product.png",
+        "name": "21WN",
+        "title": "reversible angora cardigan",
+        "price": 120,
+        "rating": 10,
+        "size": [
+            "s",
+            "m",
+            "l"
+        ],
+        "type": [
+            "Apparel",
+            "Dress"
+        ]
+    },
+    {
+        "id": 1,
+        "imageSlider": [
+            "res/images/product.png",
+            "res/images/product.png",
+            "res/images/product.png"
+        ],
+        "productColor": [
+            "0xff0F140D",
+            "0xffDD8560",
+            "0xffE1E0DB"
+        ],
+        "thumbUrl": "res/images/product.png",
+        "name": "21WN",
+        "title": "reversible angora cardigan",
+        "price": 120,
+        "rating": 10,
+        "size": [
+            "s",
+            "m",
+            "l"
+        ],
+        "type": [
+            "Apparel",
+            "Dress"
+        ]
+    },
+    {
+        "id": 1,
+        "imageSlider": [
+            "res/images/product.png",
+            "res/images/product.png",
+            "res/images/product.png"
+        ],
+        "productColor": [
+            "0xff0F140D",
+            "0xffDD8560",
+            "0xffE1E0DB"
+        ],
+        "thumbUrl": "res/images/product.png",
+        "name": "21WN",
+        "title": "reversible angora cardigan",
+        "price": 120,
+        "rating": 10,
+        "size": [
+            "s",
+            "m",
+            "l"
+        ],
+        "type": [
+            "Apparel",
+            "Dress"
+        ]
+    },
+    {
+        "id": 1,
+        "imageSlider": [
+            "res/images/product.png",
+            "res/images/product.png",
+            "res/images/product.png"
+        ],
+        "productColor": [
+            "0xff0F140D",
+            "0xffDD8560",
+            "0xffE1E0DB"
+        ],
+        "thumbUrl": "res/images/product.png",
+        "name": "21WN",
+        "title": "reversible angora cardigan",
+        "price": 120,
+        "rating": 10,
+        "size": [
+            "s",
+            "m",
+            "l"
+        ],
+        "type": [
+            "Apparel",
+            "Dress"
+        ]
+    },
+    {
+        "id": 1,
+        "imageSlider": [
+            "res/images/product.png",
+            "res/images/product.png",
+            "res/images/product.png"
+        ],
+        "productColor": [
+            "0xff0F140D",
+            "0xffDD8560",
+            "0xffE1E0DB"
+        ],
+        "thumbUrl": "res/images/product.png",
+        "name": "21WN",
+        "title": "reversible angora cardigan",
+        "price": 120,
+        "rating": 10,
+        "size": [
+            "s",
+            "m",
+            "l"
+        ],
+        "type": [
+            "Apparel",
+            "Dress"
+        ]
+    }
+]

@@ -1,45 +1,26 @@
-import 'package:flutter/material.dart';
+import 'package:open_fashion/model/product.dart';
 
 class Cart {
-  late final int? id;
-  final String? productId;
-  final String? productName;
-  final String? productTitle;
-  final double? productPrice;
-  final int? size;
-  final int? quantity;
-  final Color? color;
+  int? id;
+  Product? product;
+  int? quantity;
 
-  Cart({
-    required this.id,
-    required this.productId,
-    required this.productName,
-    required this.productTitle,
-    required this.productPrice,
-    required this.quantity,
-    required this.size,
-    required this.color,
-  });
+  Cart({this.id, this.product, this.quantity});
 
-  Cart.fromMap(Map<dynamic, dynamic> data)
-      : id = data['id'],
-        productId = data['productId'],
-        productName = data['productName'],
-        productTitle = data['productTitle'],
-        productPrice = data['productPrice'],
-        quantity = data['quantity'],
-        size = data['size'],
-        color = data['color'];
+  Cart.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    product =
+        json['product'] != null ? new Product.fromJson(json['product']) : null;
+    quantity = json['quantity'];
+  }
 
-  Map<String, dynamic> toMap() {
-    return {
-      'id': id,
-      'productId': productId,
-      'productName': productName,
-      'productTitle': productTitle,
-      'productPrice': productPrice,
-      'size': size,
-      'color': color
-    };
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['id'] = this.id;
+    if (this.product != null) {
+      data['product'] = this.product!.toJson();
+    }
+    data['quantity'] = this.quantity;
+    return data;
   }
 }

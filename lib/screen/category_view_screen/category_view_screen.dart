@@ -1,4 +1,4 @@
-import 'dart:math';
+import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:number_paginator/number_paginator.dart';
@@ -15,6 +15,8 @@ import 'package:open_fashion/widget/footer.dart';
 import '../../widget/custom_tag_border.dart';
 import 'widget/custom_button_circle.dart';
 
+import 'package:flutter/services.dart' as rootBundle;
+
 class CategoryView extends StatefulWidget {
   const CategoryView({super.key});
 
@@ -22,214 +24,40 @@ class CategoryView extends StatefulWidget {
   State<CategoryView> createState() => _CategoryViewState();
 }
 
-class _CategoryViewState extends State<CategoryView> {
+class _CategoryViewState extends State<CategoryView>
+    with SingleTickerProviderStateMixin {
+  List<Product> products = [];
+  late List<Product> product = [];
+  int numberOfProductsPerPage = 10;
+  int isGrid = 0;
+  int currentPage = 0;
+
   final List<String> types = [
     'Women',
     'All apparel',
   ];
 
-  final List<Product> products = [
-    new Product(
-      imageSlider: [
-        'res/images/product.png',
-        'res/images/product.png',
-        'res/images/product.png'
-      ],
-      productColor: [
-        AppColors.productBlack,
-        AppColors.productOrange,
-        AppColors.productGrey,
-      ],
-      thumbUrl: 'res/images/product.png',
-      name: '21WN',
-      title: 'Reversible Angora Cardigan',
-      price: 120,
-      ratting: 4.8,
-      size: ['s', 'm', 'l'],
-    ),
-    new Product(
-      imageSlider: [
-        'res/images/product.png',
-        'res/images/product.png',
-        'res/images/product.png'
-      ],
-      productColor: [
-        AppColors.productBlack,
-        AppColors.productOrange,
-        AppColors.productGrey,
-      ],
-      thumbUrl: 'res/images/product.png',
-      name: '21WN',
-      title: 'Reversible Angora Cardigan',
-      price: 120,
-      ratting: 4.8,
-      size: ['s', 'm', 'l'],
-    ),
-    new Product(
-      imageSlider: [
-        'res/images/product.png',
-        'res/images/product.png',
-        'res/images/product.png'
-      ],
-      productColor: [
-        AppColors.productBlack,
-        AppColors.productOrange,
-        AppColors.productGrey,
-      ],
-      thumbUrl: 'res/images/product.png',
-      name: '21WN',
-      title: 'Reversible Angora Cardigan',
-      price: 120,
-      ratting: 4.8,
-      size: ['s', 'm', 'l'],
-    ),
-    new Product(
-      imageSlider: [
-        'res/images/product.png',
-        'res/images/product.png',
-        'res/images/product.png'
-      ],
-      productColor: [
-        AppColors.productBlack,
-        AppColors.productOrange,
-        AppColors.productGrey,
-      ],
-      thumbUrl: 'res/images/product.png',
-      name: '21WN',
-      title: 'Reversible Angora Cardigan',
-      price: 120,
-      ratting: 4.8,
-      size: ['s', 'm', 'l'],
-    ),
-    new Product(
-      imageSlider: [
-        'res/images/product.png',
-        'res/images/product.png',
-        'res/images/product.png'
-      ],
-      productColor: [
-        AppColors.productBlack,
-        AppColors.productOrange,
-        AppColors.productGrey,
-      ],
-      thumbUrl: 'res/images/product.png',
-      name: '21WN',
-      title: 'Reversible Angora Cardigan',
-      price: 120,
-      ratting: 4.8,
-      size: ['s', 'm', 'l'],
-    ),
-    new Product(
-      imageSlider: [
-        'res/images/product.png',
-        'res/images/product.png',
-        'res/images/product.png'
-      ],
-      productColor: [
-        AppColors.productBlack,
-        AppColors.productOrange,
-        AppColors.productGrey,
-      ],
-      thumbUrl: 'res/images/product.png',
-      name: '21WN',
-      title: 'Reversible Angora Cardigan',
-      price: 120,
-      ratting: 4.8,
-      size: ['s', 'm', 'l'],
-    ),
-    new Product(
-      imageSlider: [
-        'res/images/product.png',
-        'res/images/product.png',
-        'res/images/product.png'
-      ],
-      productColor: [
-        AppColors.productBlack,
-        AppColors.productOrange,
-        AppColors.productGrey,
-      ],
-      thumbUrl: 'res/images/product.png',
-      name: '21WN',
-      title: 'Reversible Angora Cardigan',
-      price: 120,
-      ratting: 4.8,
-      size: ['s', 'm', 'l'],
-    ),
-    new Product(
-      imageSlider: [
-        'res/images/product.png',
-        'res/images/product.png',
-        'res/images/product.png'
-      ],
-      productColor: [
-        AppColors.productBlack,
-        AppColors.productOrange,
-        AppColors.productGrey,
-      ],
-      thumbUrl: 'res/images/product.png',
-      name: '21WN',
-      title: 'Reversible Angora Cardigan',
-      price: 120,
-      ratting: 4.8,
-      size: ['s', 'm', 'l'],
-    ),
-    new Product(
-      imageSlider: [
-        'res/images/product.png',
-        'res/images/product.png',
-        'res/images/product.png'
-      ],
-      productColor: [
-        AppColors.productBlack,
-        AppColors.productOrange,
-        AppColors.productGrey,
-      ],
-      thumbUrl: 'res/images/product.png',
-      name: '21WN',
-      title: 'Reversible Angora Cardigan',
-      price: 120,
-      ratting: 4.8,
-      size: ['s', 'm', 'l'],
-    ),
-    new Product(
-      imageSlider: [
-        'res/images/product.png',
-        'res/images/product.png',
-        'res/images/product.png'
-      ],
-      productColor: [
-        AppColors.productBlack,
-        AppColors.productOrange,
-        AppColors.productGrey,
-      ],
-      thumbUrl: 'res/images/product.png',
-      name: '21WN',
-      title: 'Reversible Angora Cardigan',
-      price: 120,
-      ratting: 4.8,
-      size: ['s', 'm', 'l'],
-    ),
-    new Product(
-      imageSlider: [
-        'res/images/product.png',
-        'res/images/product.png',
-        'res/images/product.png'
-      ],
-      productColor: [
-        AppColors.productBlack,
-        AppColors.productOrange,
-        AppColors.productGrey,
-      ],
-      thumbUrl: 'res/images/product.png',
-      name: '21WN',
-      title: 'Reversible Angora Cardigan',
-      price: 120,
-      ratting: 4.8,
-      size: ['s', 'm', 'l'],
-    )
-  ];
+  @override
+  void initState() {
+    super.initState();
+    loadData();
+  }
 
-  late List<Product> product = products.sublist(0, numberOfProductsPerPage);
+  Future<void> loadData() async {
+    List<Product> productList = await getDataJson();
+    setState(() {
+      products = productList;
+      product = productList.sublist(0, numberOfProductsPerPage);
+    });
+  }
+
+  Future<List<Product>> getDataJson() async {
+    final jsondata =
+        await rootBundle.rootBundle.loadString('json/product.json');
+
+    final list = json.decode(jsondata) as List<dynamic>;
+    return list.map((e) => Product.fromJson(e)).toList();
+  }
 
   void onPageSelected(int page) {
     setState(() {
@@ -248,9 +76,6 @@ class _CategoryViewState extends State<CategoryView> {
     });
   }
 
-  int numberOfProductsPerPage = 10;
-  int isGrid = 0;
-  int currentPage = 0;
   @override
   Widget build(BuildContext context) {
     final int numberOfPages =

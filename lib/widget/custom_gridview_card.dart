@@ -33,7 +33,7 @@ class GridViewCard extends StatelessWidget {
             Stack(
               children: [
                 Image.asset(
-                  product.thumbUrl,
+                  product.thumbUrl!,
                   width: Dimens.WIDTH_165,
                   fit: BoxFit.cover,
                 ),
@@ -55,10 +55,10 @@ class GridViewCard extends StatelessWidget {
                 children: [
                   SizedBox(height: Dimens.HEIGHT_8),
                   Text(
-                    product.name.toUpperCase(),
+                    product.name!.toUpperCase(),
                     style: TxtStyle.font12(AppColors.titleActive),
                   ),
-                  Text(product.title, style: TxtStyle.font12(AppColors.label)),
+                  Text(product.title!, style: TxtStyle.font12(AppColors.label)),
                   SizedBox(height: Dimens.HEIGHT_4),
                   Text(
                     '\$${product.price}',

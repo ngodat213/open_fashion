@@ -26,7 +26,6 @@ int pageNo = 0;
 class _BlogPostScreenState extends State<BlogPostScreen> {
   @override
   Widget build(BuildContext context) {
-    int len;
     return Scaffold(
       appBar: CustomAppbar(),
       body: SafeArea(

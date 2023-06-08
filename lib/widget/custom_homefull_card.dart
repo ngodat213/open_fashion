@@ -3,7 +3,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:open_fashion/theme/colors.dart';
 import 'package:open_fashion/theme/txt_styles.dart';
 import 'package:open_fashion/theme/dimens.dart';
-import 'package:open_fashion/utils/base_navigation.dart';
 
 import '../model/product.dart';
 import '../screen/product_detail_screen/product_detail_screen.dart';
@@ -30,7 +29,7 @@ class HomefullCard extends StatelessWidget {
             Stack(
               children: [
                 Image.asset(
-                  product.thumbUrl,
+                  product.thumbUrl!,
                   width: Dimens.WIDTH_165,
                   height: Dimens.HEIGHT_200,
                   fit: BoxFit.cover,
@@ -53,7 +52,7 @@ class HomefullCard extends StatelessWidget {
                   SizedBox(
                     width: Dimens.WIDTH_165,
                     child: Text(
-                        '${product.name.toUpperCase()} ${product.title}',
+                        '${product.name!.toUpperCase()} ${product.title}',
                         textAlign: TextAlign.center,
                         style: TxtStyle.font12(AppColors.titleActive)),
                   ),

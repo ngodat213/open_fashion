@@ -4,7 +4,6 @@ import 'package:open_fashion/theme/colors.dart';
 import 'package:open_fashion/theme/txt_styles.dart';
 import 'package:open_fashion/utils/base_navigation.dart';
 import 'package:open_fashion/widget/base_text.dart';
-import 'package:open_fashion/widget/custom_tag_border.dart';
 import 'package:open_fashion/widget/custom_tag_fill.dart';
 
 class SearchDrawer extends StatefulWidget {

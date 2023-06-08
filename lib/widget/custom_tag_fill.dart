@@ -29,9 +29,9 @@ class TagFill extends StatelessWidget {
           Text(title, style: TxtStyle.font14(AppColors.body)),
           GestureDetector(
               onTap: () {
-                onPressed!.call();
+                onPressed?.call();
               },
-              child: suffix!)
+              child: suffix ?? Container())
         ],
       ),
     );

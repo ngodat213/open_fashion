@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 import '../../../model/product.dart';
 import '../../../theme/colors.dart';
@@ -17,7 +16,6 @@ class CustomJustForYou extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final len = items.length;
     return Column(
       children: [
         SizedBox(height: 70),
@@ -71,14 +69,14 @@ class CustomJustForYouProduct extends StatelessWidget {
           child: Column(
             children: [
               Image.asset(
-                product.thumbUrl,
+                product.thumbUrl!,
                 width: 255,
                 height: 310,
                 fit: BoxFit.cover,
               ),
               SizedBox(height: 4),
               Text(
-                product.title,
+                product.title!,
                 textAlign: TextAlign.center,
                 style: TxtStyle.font16(AppColors.body),
               ),

@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 
 import 'package:open_fashion/theme/colors.dart';
@@ -13,12 +15,13 @@ import 'package:open_fashion/screen/homepage_screen/widget/custom_tabbar_type_it
 import 'package:open_fashion/widget/search_drawer.dart';
 
 import '../../model/user_ig.dart';
-import '../../model/features.dart';
 import '../../model/product.dart';
 import '../../widget/menu_drawer.dart';
 import 'widget/custom_listview_product.dart';
 import 'widget/features_app.dart';
 import 'widget/tag_trending.dart';
+
+import 'package:flutter/services.dart' as rootBundle;
 
 class HomepageScreen extends StatefulWidget {
   const HomepageScreen({super.key});
@@ -50,100 +53,6 @@ final listIg = [
   Instagram(imageUrl: 'res/images/avatarIg.png', username: 'mia'),
 ];
 
-final List<Product> listItem = [
-  Product(
-    imageSlider: [
-      'res/images/product.png',
-      'res/images/product.png',
-      'res/images/product.png'
-    ],
-    productColor: [
-      AppColors.productBlack,
-      AppColors.productOrange,
-      AppColors.productGrey,
-    ],
-    thumbUrl: 'res/images/product.png',
-    name: '21WN ',
-    title: 'reversible angora cardigan',
-    price: 120,
-    ratting: 10,
-    size: ['s', 'm', 'l'],
-  ),
-  Product(
-    imageSlider: [
-      'res/images/product.png',
-      'res/images/product.png',
-      'res/images/product.png'
-    ],
-    productColor: [
-      AppColors.productBlack,
-      AppColors.productOrange,
-      AppColors.productGrey,
-    ],
-    thumbUrl: 'res/images/product.png',
-    name: '21WN ',
-    title: 'reversible angora cardigan',
-    price: 120,
-    ratting: 10,
-    size: ['s', 'm', 'l'],
-  ),
-  Product(
-    imageSlider: [
-      'res/images/product.png',
-      'res/images/product.png',
-      'res/images/product.png'
-    ],
-    productColor: [
-      AppColors.productBlack,
-      AppColors.productOrange,
-      AppColors.productGrey,
-    ],
-    thumbUrl: 'res/images/product.png',
-    name: '21WN ',
-    title: 'reversible angora cardigan',
-    price: 120,
-    ratting: 10,
-    size: ['s', 'm', 'l'],
-  ),
-  Product(
-    imageSlider: [
-      'res/images/product.png',
-      'res/images/product.png',
-      'res/images/product.png'
-    ],
-    productColor: [
-      AppColors.productBlack,
-      AppColors.productOrange,
-      AppColors.productGrey,
-    ],
-    thumbUrl: 'res/images/product.png',
-    name: '21WN ',
-    title: 'reversible angora cardigan',
-    price: 120,
-    ratting: 10,
-    size: ['s', 'm', 'l'],
-  )
-];
-
-final List<Features> features = [
-  new Features(
-    'res/images/ms1.png',
-    'Fast shipping. Free on orders over \$25.',
-  ),
-  new Features(
-    'res/images/ms2.png',
-    'Sustainable process from start to finish.',
-  ),
-  new Features(
-    'res/images/ms3.png',
-    'Unique designs and high-quality materials.',
-  ),
-  new Features(
-    'res/images/ms4.png',
-    'Fast shipping. Free on orders over \$25.',
-  ),
-];
-
 final List<String> tags = [
   '#2021',
   '#spring',
@@ -156,12 +65,27 @@ final List<String> tags = [
 
 class _HomepageScreenState extends State<HomepageScreen>
     with SingleTickerProviderStateMixin {
-  late TabController _tabController;
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 5, vsync: this);
+    loadData();
   }
+
+  Future<void> loadData() async {
+    List<Product> products = await getDataJson();
+    setState(() {
+      listItems = products;
+    });
+  }
+
+  Future<List<Product>> getDataJson() async {
+    final jsondata =
+        await rootBundle.rootBundle.loadString("json/product.json");
+    final list = json.decode(jsondata) as List<dynamic>;
+    return list.map((e) => Product.fromJson(e)).toList();
+  }
+
+  List<Product> listItems = [];
 
   @override
   Widget build(BuildContext context) {
@@ -175,17 +99,23 @@ class _HomepageScreenState extends State<HomepageScreen>
           child: Column(
             children: [
               CustomCauselSlider(urlImages),
-              TabBarTypeItem(tabController: _tabController, items: listItem),
+              TabBarTypeItem(items: listItems),
               CustomDivider(),
               CustomGridviewBrand(listBrand: brands),
               CustomDivider(),
               CustomCollection(),
-              CustomJustForYou(items: listItem),
+              CustomJustForYou(items: listItems),
               TagTrending(tags: tags),
-              FeaturesApp(features: features),
+              FeaturesApp(),
               SizedBox(height: 35),
               CustomGridviewIg(listIg: listIg),
-              FooterWidget()
+              FooterWidget(),
+              ElevatedButton(
+                onPressed: () {
+                  print(listItems[0].id);
+                },
+                child: Text('hello'),
+              )
             ],
           ),
         ),
