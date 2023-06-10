@@ -30,7 +30,7 @@ flutter:
   uses-material-design: true
 
   assets:
-    - json/
+    - lib/json/
     - res/
     - res/icons/
     - res/images/

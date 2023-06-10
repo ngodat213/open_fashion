@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:number_paginator/number_paginator.dart';
 import 'package:open_fashion/model/product.dart';
 import 'package:open_fashion/screen/homepage_screen/homepage_screen.dart';
@@ -13,7 +14,6 @@ import 'package:open_fashion/widget/custom_listview_card.dart';
 import 'package:open_fashion/widget/footer.dart';
 
 import '../../widget/custom_tag_border.dart';
-import 'widget/custom_button_circle.dart';
 
 import 'package:flutter/services.dart' as rootBundle;
 
@@ -53,7 +53,7 @@ class _CategoryViewState extends State<CategoryView>
 
   Future<List<Product>> getDataJson() async {
     final jsondata =
-        await rootBundle.rootBundle.loadString('json/product.json');
+        await rootBundle.rootBundle.loadString('lib/json/product.json');
 
     final list = json.decode(jsondata) as List<dynamic>;
     return list.map((e) => Product.fromJson(e)).toList();
@@ -127,7 +127,7 @@ class _CategoryViewState extends State<CategoryView>
             style: TxtStyle.font14(AppColors.titleActive)),
         Row(
           children: [
-            CustomButtonCircle(
+            _customButtonCircle(
               iconPath: isGrid == 0
                   ? 'res/icons/Listview.svg'
                   : isGrid == 1
@@ -144,7 +144,7 @@ class _CategoryViewState extends State<CategoryView>
                 });
               },
             ),
-            CustomButtonCircle(
+            _customButtonCircle(
               iconPath: 'res/icons/Filter.svg',
               onTap: () {
                 Navigator.of(context).push(
@@ -183,4 +183,38 @@ class _CategoryViewState extends State<CategoryView>
               children:
                   product.map((e) => GridViewCardFull(product: e)).toList(),
             );
+}
+
+class _customButtonCircle extends StatelessWidget {
+  const _customButtonCircle({
+    super.key,
+    required this.iconPath,
+    required this.onTap,
+  });
+  final String iconPath;
+  final Function onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: () {
+        onTap.call();
+      },
+      child: Container(
+        width: 36,
+        height: 36,
+        decoration: BoxDecoration(
+          color: AppColors.footer.withOpacity(0.1),
+          borderRadius: BorderRadius.circular(100),
+        ),
+        child: Center(
+          child: Container(
+            width: 20,
+            height: 20,
+            child: SvgPicture.asset(iconPath),
+          ),
+        ),
+      ),
+    );
+  }
 }

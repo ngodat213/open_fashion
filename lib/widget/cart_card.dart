@@ -11,13 +11,13 @@ class CartCard extends StatefulWidget {
   State<CartCard> createState() => _CartCardState();
 }
 
-int count = 1;
+int count = 0;
 
 class _CartCardState extends State<CartCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 314,
+      // width: 314,
       margin: EdgeInsets.only(bottom: 16),
       child: Row(
         children: [
@@ -51,6 +51,7 @@ class _CartCardState extends State<CartCard> {
                         setState(() {
                           if (count != 1) {
                             count--;
+                            widget.cart.quantity = count;
                           }
                         });
                       },
@@ -69,13 +70,14 @@ class _CartCardState extends State<CartCard> {
                       ),
                     ),
                     Text(
-                      count.toString(),
+                      '${widget.cart.quantity}',
                       style: TxtStyle.font14(AppColors.titleActive),
                     ),
                     GestureDetector(
                       onTap: () {
                         setState(() {
                           count++;
+                          widget.cart.quantity = count;
                         });
                       },
                       child: Container(

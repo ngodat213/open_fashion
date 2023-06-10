@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:open_fashion/manager/manager_routes.dart';
 import 'package:open_fashion/theme/dimens.dart';
 import 'package:open_fashion/theme/colors.dart';
 import 'package:open_fashion/theme/txt_styles.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:open_fashion/utils/base_navigation.dart';
 
 class FooterWidget extends StatelessWidget {
   const FooterWidget({super.key});
@@ -47,7 +49,10 @@ class FooterWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  BaseNavigation.push(context,
+                      routeName: ManagerRoutes.ourStory);
+                },
                 child: Text('About',
                     style: TxtStyle.font16(AppColors.titleActive)),
               ),

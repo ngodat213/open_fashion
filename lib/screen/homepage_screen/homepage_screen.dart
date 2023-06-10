@@ -80,7 +80,7 @@ class _HomepageScreenState extends State<HomepageScreen>
 
   Future<List<Product>> getDataJson() async {
     final jsondata =
-        await rootBundle.rootBundle.loadString("json/product.json");
+        await rootBundle.rootBundle.loadString("lib/json/product.json");
     final list = json.decode(jsondata) as List<dynamic>;
     return list.map((e) => Product.fromJson(e)).toList();
   }
@@ -110,12 +110,6 @@ class _HomepageScreenState extends State<HomepageScreen>
               SizedBox(height: 35),
               CustomGridviewIg(listIg: listIg),
               FooterWidget(),
-              ElevatedButton(
-                onPressed: () {
-                  print(listItems[0].id);
-                },
-                child: Text('hello'),
-              )
             ],
           ),
         ),

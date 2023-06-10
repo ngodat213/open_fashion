@@ -40,7 +40,8 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
                     ),
                     IconButton(
                       onPressed: () {
-                        Scaffold.of(context).openDrawer();
+                        BaseNavigation.push(context,
+                            routeName: ManagerRoutes.checkoutScreen);
                       },
                       icon: SvgPicture.asset("res/icons/shopping_bag.svg"),
                     )
