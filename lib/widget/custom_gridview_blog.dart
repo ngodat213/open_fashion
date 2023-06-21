@@ -12,8 +12,10 @@ class GridViewBlog extends StatelessWidget {
   const GridViewBlog({
     Key? key,
     required this.blog,
+    required this.onTap,
   }) : super(key: key);
   final Blog blog;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -23,34 +25,37 @@ class GridViewBlog extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Stack(
-            children: [
-              Image.asset(blog.thumb),
-              Positioned(
-                top: 11,
-                right: 8,
-                child: SvgPicture.asset(
-                  'res/icons/bookmark.svg',
-                  width: 18,
-                  height: 18,
+          GestureDetector(
+            onTap: onTap,
+            child: Stack(
+              children: [
+                Image.asset(blog.thumb),
+                Positioned(
+                  top: 11,
+                  right: 8,
+                  child: SvgPicture.asset(
+                    'res/icons/bookmark.svg',
+                    width: 18,
+                    height: 18,
+                  ),
                 ),
-              ),
-              Positioned(
-                bottom: 0,
-                child: Container(
-                  width: 343,
-                  height: 86,
-                  decoration: BoxDecoration(gradient: AppColors.myGradient),
-                  child: Padding(
-                    padding: EdgeInsets.only(left: 14, top: 33, right: 14),
-                    child: Text(
-                      blog.title.toUpperCase(),
-                      style: TxtStyle.font14(AppColors.offWhite),
+                Positioned(
+                  bottom: 0,
+                  child: Container(
+                    width: 343,
+                    height: 86,
+                    decoration: BoxDecoration(gradient: AppColors.myGradient),
+                    child: Padding(
+                      padding: EdgeInsets.only(left: 14, top: 33, right: 14),
+                      child: Text(
+                        blog.title.toUpperCase(),
+                        style: TxtStyle.font14(AppColors.offWhite),
+                      ),
                     ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,

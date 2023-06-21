@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:open_fashion/manager/manager_routes.dart';
+import 'package:open_fashion/theme/images.dart';
 import 'package:open_fashion/utils/base_navigation.dart';
 
 class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
@@ -19,8 +20,8 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
                     BaseNavigation.push(context,
                         routeName: ManagerRoutes.homePage);
                   },
-                  child: Center(
-                      child: Image.asset("res/images/logo.png", width: 100))),
+                  child:
+                      Center(child: Image.asset(Images.imageLogo, width: 100))),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -29,21 +30,21 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
                     onPressed: () {
                       Scaffold.of(context).openDrawer();
                     },
-                    icon: SvgPicture.asset('res/icons/menu.svg')),
+                    icon: SvgPicture.asset(Images.iconMenu)),
                 Row(
                   children: [
                     IconButton(
                       onPressed: () {
                         Scaffold.of(context).openEndDrawer();
                       },
-                      icon: SvgPicture.asset("res/icons/search.svg"),
+                      icon: SvgPicture.asset(Images.iconSearch),
                     ),
                     IconButton(
                       onPressed: () {
                         BaseNavigation.push(context,
                             routeName: ManagerRoutes.checkoutScreen);
                       },
-                      icon: SvgPicture.asset("res/icons/shopping_bag.svg"),
+                      icon: SvgPicture.asset(Images.iconCart),
                     )
                   ],
                 ),

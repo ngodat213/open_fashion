@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:open_fashion/screen/homepage_screen/widget/custom_divider.dart';
 import 'package:open_fashion/theme/colors.dart';
+import 'package:open_fashion/theme/images.dart';
 import 'package:open_fashion/theme/txt_styles.dart';
 import 'package:open_fashion/widget/appbar.dart';
 import 'package:open_fashion/widget/menu_drawer.dart';
@@ -71,7 +72,7 @@ class _buildButton extends StatelessWidget {
             ),
             SizedBox(width: 24),
             SvgPicture.asset(
-              'res/icons/forward_arrow.svg',
+              Images.iconForwardArrow,
               color: AppColors.offWhite,
             ),
           ],

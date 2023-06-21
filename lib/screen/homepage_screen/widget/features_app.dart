@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:open_fashion/theme/images.dart';
 
 import '../../../model/features.dart';
 import '../../../theme/colors.dart';
@@ -13,19 +14,19 @@ class FeaturesApp extends StatelessWidget {
 
   final List<Features> features = [
     new Features(
-      'res/images/ms1.png',
+      Images.imageMs1,
       'Fast shipping. Free on orders over \$25.',
     ),
     new Features(
-      'res/images/ms2.png',
+      Images.imageMs2,
       'Sustainable process from start to finish.',
     ),
     new Features(
-      'res/images/ms3.png',
+      Images.imageMs3,
       'Unique designs and high-quality materials.',
     ),
     new Features(
-      'res/images/ms4.png',
+      Images.imageMs4,
       'Fast shipping. Free on orders over \$25.',
     ),
   ];
@@ -35,7 +36,7 @@ class FeaturesApp extends StatelessWidget {
     return Column(
       children: [
         SizedBox(height: 64),
-        Image.asset('res/images/logo.png'),
+        Image.asset(Images.imageLogo),
         Container(
           margin: EdgeInsets.only(top: 16),
           width: 280,
@@ -65,7 +66,7 @@ class FeaturesApp extends StatelessWidget {
           },
         ),
         SizedBox(height: 33),
-        Image.asset('res/images/end.png')
+        Image.asset(Images.imageEnd)
       ],
     );
   }

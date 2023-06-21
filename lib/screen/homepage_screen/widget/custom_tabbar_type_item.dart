@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:open_fashion/theme/colors.dart';
+import 'package:open_fashion/generated/l10n.dart';
 import 'package:open_fashion/theme/dimens.dart';
+import 'package:open_fashion/theme/images.dart';
 import 'package:open_fashion/theme/txt_styles.dart';
 import 'package:open_fashion/widget/custom_homefull_card.dart';
 
@@ -121,8 +123,8 @@ class custom_item_tabbarview extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('Explore More'),
-                  SvgPicture.asset('res/icons/forward_arrow.svg',
+                  Text(S.of(context).exploreMore),
+                  SvgPicture.asset(Images.iconForwardArrow,
                       color: AppColors.titleActive, width: 18)
                 ],
               ),

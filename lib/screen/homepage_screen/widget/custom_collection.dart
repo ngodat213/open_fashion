@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:open_fashion/theme/images.dart';
 import 'package:open_fashion/theme/txt_styles.dart';
 import 'package:open_fashion/theme/dimens.dart';
 import 'package:open_fashion/theme/colors.dart';
@@ -25,7 +26,7 @@ class CustomCollection extends StatelessWidget {
             decoration: BoxDecoration(
               image: DecorationImage(
                 fit: BoxFit.cover,
-                image: AssetImage('res/images/Frame 2.png'),
+                image: AssetImage(Images.imageFrame2),
               ),
             ),
           ),
@@ -36,7 +37,7 @@ class CustomCollection extends StatelessWidget {
             decoration: BoxDecoration(
               image: DecorationImage(
                 fit: BoxFit.cover,
-                image: AssetImage('res/images/Frame 2.png'),
+                image: AssetImage(Images.imageFrame2),
               ),
             ),
           ),

@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 
 import 'package:open_fashion/theme/colors.dart';
+import 'package:open_fashion/theme/images.dart';
 import 'package:open_fashion/widget/appbar.dart';
 import 'package:open_fashion/widget/footer.dart';
 
@@ -31,26 +32,26 @@ class HomepageScreen extends StatefulWidget {
 }
 
 final urlImages = [
-  "res/images/image_slider.png",
-  "res/images/image_slider.png",
-  "res/images/image_slider.png",
-  "res/images/image_slider.png",
+  Images.imageImageSlider,
+  Images.imageImageSlider,
+  Images.imageImageSlider,
+  Images.imageImageSlider,
 ];
 
 final brands = [
-  'res/images/Catier.png',
-  'res/images/Catier.png',
-  'res/images/Catier.png',
-  'res/images/Catier.png',
-  'res/images/Catier.png',
-  'res/images/Catier.png'
+  Images.imageCatier,
+  Images.imageCatier,
+  Images.imageCatier,
+  Images.imageCatier,
+  Images.imageCatier,
+  Images.imageCatier,
 ];
 
 final listIg = [
-  Instagram(imageUrl: 'res/images/avatarIg.png', username: 'mia'),
-  Instagram(imageUrl: 'res/images/avatarIg.png', username: 'mia'),
-  Instagram(imageUrl: 'res/images/avatarIg.png', username: 'mia'),
-  Instagram(imageUrl: 'res/images/avatarIg.png', username: 'mia'),
+  Instagram(imageUrl: Images.imageInstargramDefault, username: 'mia'),
+  Instagram(imageUrl: Images.imageInstargramDefault, username: 'mia'),
+  Instagram(imageUrl: Images.imageInstargramDefault, username: 'mia'),
+  Instagram(imageUrl: Images.imageInstargramDefault, username: 'mia'),
 ];
 
 final List<String> tags = [

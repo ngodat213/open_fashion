@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:open_fashion/manager/manager_routes.dart';
 import 'package:open_fashion/model/blog.dart';
 import 'package:open_fashion/theme/colors.dart';
+import 'package:open_fashion/theme/images.dart';
 import 'package:open_fashion/theme/txt_styles.dart';
 import 'package:open_fashion/utils/base_navigation.dart';
 import 'package:open_fashion/widget/appbar.dart';
@@ -29,8 +30,10 @@ class BlogScreen extends StatelessWidget {
     final List<Blog> listBlog = [
       new Blog(
         ['#Fashion', '#Tips'],
-        'res/images/blog_image.png',
-        ['res/images/blog_image.png'],
+        Images.imageBlogImage,
+        [
+          Images.imageBlogImage,
+        ],
         '2021 Style Guide: The Biggest Fall Trends',
         [
           'You guys know how much I love mixing high and low-end – it’s the best way to get the most bang for your buck while still elevating your wardrobe. The same goes for handbags! And honestly they are probably the best pieces to mix and match. I truly think the key to completing a look is with a great bag and I found so many this year that I wanted to share a round-up of my most worn handbags.',
@@ -42,8 +45,10 @@ class BlogScreen extends StatelessWidget {
       ),
       new Blog(
         ['#Fashion', '#Tips'],
-        'res/images/blog_image.png',
-        ['res/images/blog_image.png'],
+        Images.imageBlogImage,
+        [
+          Images.imageBlogImage,
+        ],
         '2021 Style Guide: The Biggest Fall Trends',
         [
           'You guys know how much I love mixing high and low-end – it’s the best way to get the most bang for your buck while still elevating your wardrobe. The same goes for handbags! And honestly they are probably the best pieces to mix and match. I truly think the key to completing a look is with a great bag and I found so many this year that I wanted to share a round-up of my most worn handbags.',
@@ -55,8 +60,10 @@ class BlogScreen extends StatelessWidget {
       ),
       new Blog(
         ['#Fashion', '#Tips'],
-        'res/images/blog_image.png',
-        ['res/images/blog_image.png'],
+        Images.imageBlogImage,
+        [
+          Images.imageBlogImage,
+        ],
         '2021 Style Guide: The Biggest Fall Trends',
         [
           'You guys know how much I love mixing high and low-end – it’s the best way to get the most bang for your buck while still elevating your wardrobe. The same goes for handbags! And honestly they are probably the best pieces to mix and match. I truly think the key to completing a look is with a great bag and I found so many this year that I wanted to share a round-up of my most worn handbags.',
@@ -68,8 +75,10 @@ class BlogScreen extends StatelessWidget {
       ),
       new Blog(
         ['#Fashion', '#Tips'],
-        'res/images/blog_image.png',
-        ['res/images  /blog_image.png'],
+        Images.imageBlogImage,
+        [
+          Images.imageBlogImage,
+        ],
         '2021 Style Guide: The Biggest Fall Trends',
         [
           'You guys know how much I love mixing high and low-end – it’s the best way to get the most bang for your buck while still elevating your wardrobe. The same goes for handbags! And honestly they are probably the best pieces to mix and match. I truly think the key to completing a look is with a great bag and I found so many this year that I wanted to share a round-up of my most worn handbags.',
@@ -92,7 +101,12 @@ class BlogScreen extends StatelessWidget {
               ListTypeBlog(listTypeBlog: listTypeBlog),
               SizedBox(height: 32),
               Column(
-                children: listBlog.map((e) => GridViewBlog(blog: e)).toList(),
+                children: listBlog
+                    .map((e) => GridViewBlog(
+                          blog: e,
+                          onTap: () {},
+                        ))
+                    .toList(),
               ),
               CustomOutlineButton(
                 text: 'Load more',

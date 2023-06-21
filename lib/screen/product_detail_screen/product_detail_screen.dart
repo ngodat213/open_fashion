@@ -1,10 +1,10 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 import 'package:open_fashion/model/product.dart';
 import 'package:open_fashion/theme/colors.dart';
+import 'package:open_fashion/theme/images.dart';
 import 'package:open_fashion/theme/txt_styles.dart';
 import 'package:open_fashion/widget/appbar.dart';
 import 'package:open_fashion/widget/base_text.dart';
@@ -34,16 +34,16 @@ int chooseSize = 0;
 final List<Product> products = [
   new Product(
     imageSlider: [
-      'res/images/product.png',
-      'res/images/product.png',
-      'res/images/product.png'
+      Images.imageProduct,
+      Images.imageProduct,
+      Images.imageProduct,
     ],
     productColor: [
       AppColors.productBlack,
       AppColors.productOrange,
       AppColors.productGrey,
     ],
-    thumbUrl: 'res/images/product.png',
+    thumbUrl: Images.imageProduct,
     name: '21WN',
     title: 'Reversible Angora Cardigan',
     price: 120,
@@ -52,16 +52,16 @@ final List<Product> products = [
   ),
   new Product(
     imageSlider: [
-      'res/images/product.png',
-      'res/images/product.png',
-      'res/images/product.png'
+      Images.imageProduct,
+      Images.imageProduct,
+      Images.imageProduct
     ],
     productColor: [
       AppColors.productBlack,
       AppColors.productOrange,
       AppColors.productGrey,
     ],
-    thumbUrl: 'res/images/product.png',
+    thumbUrl: Images.imageProduct,
     name: '21WN',
     title: 'Reversible Angora Cardigan',
     price: 120,
@@ -70,16 +70,16 @@ final List<Product> products = [
   ),
   new Product(
     imageSlider: [
-      'res/images/product.png',
-      'res/images/product.png',
-      'res/images/product.png'
+      Images.imageProduct,
+      Images.imageProduct,
+      Images.imageProduct
     ],
     productColor: [
       AppColors.productBlack,
       AppColors.productOrange,
       AppColors.productGrey,
     ],
-    thumbUrl: 'res/images/product.png',
+    thumbUrl: Images.imageProduct,
     name: '21WN',
     title: 'Reversible Angora Cardigan',
     price: 120,
@@ -88,16 +88,16 @@ final List<Product> products = [
   ),
   new Product(
     imageSlider: [
-      'res/images/product.png',
-      'res/images/product.png',
-      'res/images/product.png'
+      Images.imageProduct,
+      Images.imageProduct,
+      Images.imageProduct
     ],
     productColor: [
       AppColors.productBlack,
       AppColors.productOrange,
       AppColors.productGrey,
     ],
-    thumbUrl: 'res/images/product.png',
+    thumbUrl: Images.imageProduct,
     name: '21WN',
     title: 'Reversible Angora Cardigan',
     price: 120,
@@ -151,8 +151,8 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                           margin: EdgeInsets.only(left: 5),
                           child: SvgPicture.asset(
                             pageNo != i
-                                ? 'res/icons/diamond-unselect.svg'
-                                : 'res/icons/diamond-select.svg',
+                                ? Images.iconDiamondUnselect
+                                : Images.iconDiamondSelect,
                             width: 8,
                           ),
                         )).toList(),
@@ -170,7 +170,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                           style: TxtStyle.font16(AppColors.titleActive),
                         ),
                         SvgPicture.asset(
-                          'res/icons/Export.svg',
+                          Images.iconExport,
                           width: 16,
                           height: 16,
                         )
@@ -211,18 +211,18 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                     ),
                     _customExpansionTile(
                       'Free Flat Rate Shipping',
-                      prefix: 'res/icons/Shipping.svg',
+                      prefix: Images.iconShipping,
                       description:
                           'Estimated to be delivered on 09/11/2021 - 12/11/2021.',
                     ),
                     _customExpansionTile(
                       'COD Policy',
-                      prefix: 'res/icons/Tag.svg',
+                      prefix: Images.iconTag,
                       description: 'COD Policy',
                     ),
                     _customExpansionTile(
                       'Return Policy',
-                      prefix: 'res/icons/Refresh.svg',
+                      prefix: Images.iconRefresh,
                       description: 'COD Policy',
                     ),
                   ],
@@ -296,7 +296,6 @@ class _customExpansionTile extends StatelessWidget {
     this.title, {
     required this.prefix,
     required this.description,
-    super.key,
   });
   final String? prefix;
   final String? title;

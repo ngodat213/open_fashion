@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:open_fashion/generated/l10n.dart';
 import 'package:open_fashion/manager/manager_routes.dart';
 import 'package:open_fashion/screen/blog_post_screen/blog_post_screen.dart';
 import 'package:open_fashion/screen/homepage_screen/homepage_screen.dart';
 import 'package:open_fashion/theme/colors.dart';
 import 'package:open_fashion/theme/dimens.dart';
+import 'package:open_fashion/theme/images.dart';
 import 'package:open_fashion/theme/txt_styles.dart';
 import 'package:open_fashion/utils/base_navigation.dart';
 
@@ -66,9 +68,9 @@ class SliderBanner extends StatelessWidget {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => BlogPostScreen(fashionPost: [
-                  'res/images/image_slider.png',
-                  'res/images/image_slider.png',
-                  'res/images/image_slider.png'
+                  Images.imageImageSlider,
+                  Images.imageImageSlider,
+                  Images.imageImageSlider,
                 ], tags: [
                   '#Fashion',
                   '#Tips',
@@ -106,7 +108,7 @@ class SliderBanner extends StatelessWidget {
           (i) => Container(
                 margin: EdgeInsets.only(left: 5),
                 child: SvgPicture.asset(
-                  'res/icons/diamond-solid.svg',
+                  Images.iconDiamondSolid,
                   width: 8,
                   color:
                       index != i ? AppColors.background : AppColors.placeholder,
@@ -130,7 +132,7 @@ class SliderBanner extends StatelessWidget {
         ),
         child: Center(
             child: Text(
-          'Explore Collection'.toUpperCase(),
+          S.of(context).exploreCollection.toUpperCase(),
           style: TxtStyle.font16(AppColors.offWhite),
         )),
       ),

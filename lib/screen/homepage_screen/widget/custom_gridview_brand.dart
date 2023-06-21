@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:open_fashion/theme/images.dart';
 
 class CustomGridviewBrand extends StatelessWidget {
   const CustomGridviewBrand({
@@ -22,7 +23,7 @@ class CustomGridviewBrand extends StatelessWidget {
       itemCount: 6,
       itemBuilder: (context, index) {
         return Container(
-          child: Image.asset('res/images/Catier.png'),
+          child: Image.asset(Images.imageCatier),
         );
       },
     );

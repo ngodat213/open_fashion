@@ -4,16 +4,16 @@
         "product": {
             "id": 1,
             "imageSlider": [
-                "res/images/product.png",
-                "res/images/product.png",
-                "res/images/product.png"
+                Images.imageProduct,
+                Images.imageProduct,
+                Images.imageProduct
             ],
             "productColor": [
                 "0xff0F140D",
                 "0xffDD8560",
                 "0xffE1E0DB"
             ],
-            "thumbUrl": "res/images/product.png",
+            "thumbUrl": Images.imageProduct,
             "name": "21WN",
             "title": "reversible angora cardigan",
             "price": 120,
@@ -34,16 +34,16 @@
         "product": {
             "id": 1,
             "imageSlider": [
-                "res/images/product.png",
-                "res/images/product.png",
-                "res/images/product.png"
+                Images.imageProduct,
+                Images.imageProduct,
+                Images.imageProduct
             ],
             "productColor": [
                 "0xff0F140D",
                 "0xffDD8560",
                 "0xffE1E0DB"
             ],
-            "thumbUrl": "res/images/product.png",
+            "thumbUrl": Images.imageProduct,
             "name": "21WN",
             "title": "reversible angora cardigan",
             "price": 120,
@@ -64,16 +64,16 @@
         "product": {
             "id": 1,
             "imageSlider": [
-                "res/images/product.png",
-                "res/images/product.png",
-                "res/images/product.png"
+                Images.imageProduct,
+                Images.imageProduct,
+                Images.imageProduct
             ],
             "productColor": [
                 "0xff0F140D",
                 "0xffDD8560",
                 "0xffE1E0DB"
             ],
-            "thumbUrl": "res/images/product.png",
+            "thumbUrl": Images.imageProduct,
             "name": "21WN",
             "title": "reversible angora cardigan",
             "price": 120,

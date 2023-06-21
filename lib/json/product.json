@@ -2,16 +2,16 @@
     {
         "id": 1,
         "imageSlider": [
-            "res/images/product.png",
-            "res/images/product.png",
-            "res/images/product.png"
+            "lib/res/images/product.png",
+            "lib/res/images/product.png",
+            "lib/res/images/product.png"
         ],
         "productColor": [
             "0xff0F140D",
             "0xffDD8560",
             "0xffE1E0DB"
         ],
-        "thumbUrl": "res/images/product.png",
+        "thumbUrl": "lib/res/images/product.png",
         "name": "21WN",
         "title": "reversible angora cardigan",
         "price": 120,
@@ -29,16 +29,16 @@
     {
         "id": 1,
         "imageSlider": [
-            "res/images/product.png",
-            "res/images/product.png",
-            "res/images/product.png"
+            "lib/res/images/product.png",
+            "lib/res/images/product.png",
+            "lib/res/images/product.png"
         ],
         "productColor": [
             "0xff0F140D",
             "0xffDD8560",
             "0xffE1E0DB"
         ],
-        "thumbUrl": "res/images/product.png",
+        "thumbUrl": "lib/res/images/product.png",
         "name": "21WN",
         "title": "reversible angora cardigan",
         "price": 120,
@@ -56,16 +56,16 @@
     {
         "id": 1,
         "imageSlider": [
-            "res/images/product.png",
-            "res/images/product.png",
-            "res/images/product.png"
+            "lib/res/images/product.png",
+            "lib/res/images/product.png",
+            "lib/res/images/product.png"
         ],
         "productColor": [
             "0xff0F140D",
             "0xffDD8560",
             "0xffE1E0DB"
         ],
-        "thumbUrl": "res/images/product.png",
+        "thumbUrl": "lib/res/images/product.png",
         "name": "21WN",
         "title": "reversible angora cardigan",
         "price": 120,
@@ -83,16 +83,16 @@
     {
         "id": 1,
         "imageSlider": [
-            "res/images/product.png",
-            "res/images/product.png",
-            "res/images/product.png"
+            "lib/res/images/product.png",
+            "lib/res/images/product.png",
+            "lib/res/images/product.png"
         ],
         "productColor": [
             "0xff0F140D",
             "0xffDD8560",
             "0xffE1E0DB"
         ],
-        "thumbUrl": "res/images/product.png",
+        "thumbUrl": "lib/res/images/product.png",
         "name": "21WN",
         "title": "reversible angora cardigan",
         "price": 120,
@@ -110,16 +110,16 @@
     {
         "id": 1,
         "imageSlider": [
-            "res/images/product.png",
-            "res/images/product.png",
-            "res/images/product.png"
+            "lib/res/images/product.png",
+            "lib/res/images/product.png",
+            "lib/res/images/product.png"
         ],
         "productColor": [
             "0xff0F140D",
             "0xffDD8560",
             "0xffE1E0DB"
         ],
-        "thumbUrl": "res/images/product.png",
+        "thumbUrl": "lib/res/images/product.png",
         "name": "21WN",
         "title": "reversible angora cardigan",
         "price": 120,
@@ -137,16 +137,16 @@
     {
         "id": 1,
         "imageSlider": [
-            "res/images/product.png",
-            "res/images/product.png",
-            "res/images/product.png"
+            "lib/res/images/product.png",
+            "lib/res/images/product.png",
+            "lib/res/images/product.png"
         ],
         "productColor": [
             "0xff0F140D",
             "0xffDD8560",
             "0xffE1E0DB"
         ],
-        "thumbUrl": "res/images/product.png",
+        "thumbUrl": "lib/res/images/product.png",
         "name": "21WN",
         "title": "reversible angora cardigan",
         "price": 120,
@@ -164,16 +164,16 @@
     {
         "id": 1,
         "imageSlider": [
-            "res/images/product.png",
-            "res/images/product.png",
-            "res/images/product.png"
+            "lib/res/images/product.png",
+            "lib/res/images/product.png",
+            "lib/res/images/product.png"
         ],
         "productColor": [
             "0xff0F140D",
             "0xffDD8560",
             "0xffE1E0DB"
         ],
-        "thumbUrl": "res/images/product.png",
+        "thumbUrl": "lib/res/images/product.png",
         "name": "21WN",
         "title": "reversible angora cardigan",
         "price": 120,
@@ -191,16 +191,16 @@
     {
         "id": 1,
         "imageSlider": [
-            "res/images/product.png",
-            "res/images/product.png",
-            "res/images/product.png"
+            "lib/res/images/product.png",
+            "lib/res/images/product.png",
+            "lib/res/images/product.png"
         ],
         "productColor": [
             "0xff0F140D",
             "0xffDD8560",
             "0xffE1E0DB"
         ],
-        "thumbUrl": "res/images/product.png",
+        "thumbUrl": "lib/res/images/product.png",
         "name": "21WN",
         "title": "reversible angora cardigan",
         "price": 120,
@@ -218,16 +218,16 @@
     {
         "id": 1,
         "imageSlider": [
-            "res/images/product.png",
-            "res/images/product.png",
-            "res/images/product.png"
+            "lib/res/images/product.png",
+            "lib/res/images/product.png",
+            "lib/res/images/product.png"
         ],
         "productColor": [
             "0xff0F140D",
             "0xffDD8560",
             "0xffE1E0DB"
         ],
-        "thumbUrl": "res/images/product.png",
+        "thumbUrl": "lib/res/images/product.png",
         "name": "21WN",
         "title": "reversible angora cardigan",
         "price": 120,
@@ -245,16 +245,16 @@
     {
         "id": 1,
         "imageSlider": [
-            "res/images/product.png",
-            "res/images/product.png",
-            "res/images/product.png"
+            "lib/res/images/product.png",
+            "lib/res/images/product.png",
+            "lib/res/images/product.png"
         ],
         "productColor": [
             "0xff0F140D",
             "0xffDD8560",
             "0xffE1E0DB"
         ],
-        "thumbUrl": "res/images/product.png",
+        "thumbUrl": "lib/res/images/product.png",
         "name": "21WN",
         "title": "reversible angora cardigan",
         "price": 120,
