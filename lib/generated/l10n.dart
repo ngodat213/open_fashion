@@ -391,6 +391,36 @@ class S {
       args: [],
     );
   }
+
+  /// `Add To Basket`
+  String get addToBasket {
+    return Intl.message(
+      'Add To Basket',
+      name: 'addToBasket',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Size`
+  String get size {
+    return Intl.message(
+      'Size',
+      name: 'size',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Rating`
+  String get rating {
+    return Intl.message(
+      'Rating',
+      name: 'rating',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

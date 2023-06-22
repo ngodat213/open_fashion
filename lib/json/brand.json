@@ -1,0 +1,32 @@
+[
+    {
+        "idBrand":0,
+        "brandName": "Boss",
+        "logoImage": "boss.png"
+    },
+    {
+        "idBrand":1,
+        "brandName": "Burberry",
+        "logoImage": "burberry.png"
+    },
+    {
+        "idBrand":2,
+        "brandName": "Catier",
+        "logoImage": "catier.png"
+    },
+    {
+        "idBrand":3,
+        "brandName": "Gucci",
+        "logoImage": "gucci.png"
+    },
+    {
+        "idBrand":4,
+        "brandName": "Prada",
+        "logoImage": "prada.png"
+    },
+    {
+        "idBrand":5,
+        "brandName": "Tiffany & Co",
+        "logoImage": "tiffanyCo.png"
+    }
+]

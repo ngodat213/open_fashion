@@ -9,7 +9,6 @@ import 'package:open_fashion/theme/txt_styles.dart';
 import 'package:open_fashion/widget/appbar.dart';
 import 'package:open_fashion/widget/base_text.dart';
 import 'package:open_fashion/widget/custom_size_button.dart';
-import 'package:open_fashion/widget/footer.dart';
 
 import '../../widget/custom_button_add2basket.dart';
 import 'widget/custom_choose_color.dart';
@@ -230,7 +229,6 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
               ),
               SizedBox(height: 70),
               ProductRecommend(products: products),
-              FooterWidget()
             ],
           ),
         ),

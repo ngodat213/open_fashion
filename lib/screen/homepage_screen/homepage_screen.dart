@@ -1,17 +1,16 @@
 import 'dart:convert';
 
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 
 import 'package:open_fashion/theme/colors.dart';
 import 'package:open_fashion/theme/images.dart';
 import 'package:open_fashion/widget/appbar.dart';
-import 'package:open_fashion/widget/footer.dart';
 
 import 'package:open_fashion/screen/homepage_screen/widget/custom_divider.dart';
 import 'package:open_fashion/screen/homepage_screen/widget/custom_collection.dart';
 import 'package:open_fashion/screen/homepage_screen/widget/custom_gridview_ig.dart';
 import 'package:open_fashion/screen/homepage_screen/widget/custom_causel_slider.dart';
-import 'package:open_fashion/screen/homepage_screen/widget/custom_gridview_brand.dart';
 import 'package:open_fashion/screen/homepage_screen/widget/custom_tabbar_type_item.dart';
 import 'package:open_fashion/widget/search_drawer.dart';
 
@@ -86,7 +85,23 @@ class _HomepageScreenState extends State<HomepageScreen>
     return list.map((e) => Product.fromJson(e)).toList();
   }
 
+  Future<List> loadBrand() async {
+    List<Map> files = [];
+    final ListResult result = await storageRef.listAll();
+    final List<Reference> allFile = result.items;
+    await Future.forEach(allFile, (Reference file) async {
+      final String fileUrl = await file.getDownloadURL();
+      files.add({
+        "url": fileUrl,
+        "path": file.fullPath,
+      });
+    });
+    print(files);
+    return files;
+  }
+
   List<Product> listItems = [];
+  final storageRef = FirebaseStorage.instance.ref().child('imageBrand');
 
   @override
   Widget build(BuildContext context) {
@@ -102,7 +117,31 @@ class _HomepageScreenState extends State<HomepageScreen>
               CustomCauselSlider(urlImages),
               TabBarTypeItem(items: listItems),
               CustomDivider(),
-              CustomGridviewBrand(listBrand: brands),
+              FutureBuilder(
+                future: loadBrand(),
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return Center(child: CircularProgressIndicator());
+                  }
+                  return GridView.builder(
+                    physics: NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 3,
+                      crossAxisSpacing: 13,
+                      mainAxisSpacing: 11,
+                      mainAxisExtent: 30,
+                    ),
+                    itemCount: snapshot.data!.length,
+                    itemBuilder: (context, index) {
+                      final Map image = snapshot.data![index];
+                      return Container(
+                        child: Image.network(image['url']),
+                      );
+                    },
+                  );
+                },
+              ),
               CustomDivider(),
               CustomCollection(),
               CustomJustForYou(items: listItems),
@@ -110,7 +149,7 @@ class _HomepageScreenState extends State<HomepageScreen>
               FeaturesApp(),
               SizedBox(height: 35),
               CustomGridviewIg(listIg: listIg),
-              FooterWidget(),
+              const SizedBox(height: 56)
             ],
           ),
         ),

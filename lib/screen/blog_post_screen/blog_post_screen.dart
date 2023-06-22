@@ -4,7 +4,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:open_fashion/theme/colors.dart';
 import 'package:open_fashion/theme/txt_styles.dart';
 import 'package:open_fashion/widget/custom_tag_border.dart';
-import 'package:open_fashion/widget/footer.dart';
 
 import '../../widget/appbar.dart';
 
@@ -116,7 +115,6 @@ class _BlogPostScreenState extends State<BlogPostScreen> {
                   ],
                 ),
               ),
-              FooterWidget(),
             ],
           ),
         ),

@@ -15,13 +15,13 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
         child: Stack(
           children: [
             Positioned.fill(
-              child: InkWell(
-                  onTap: () {
-                    BaseNavigation.push(context,
-                        routeName: ManagerRoutes.homePage);
-                  },
-                  child:
-                      Center(child: Image.asset(Images.imageLogo, width: 100))),
+              child: GestureDetector(
+                onTap: () {
+                  BaseNavigation.push(context,
+                      routeName: ManagerRoutes.homePage);
+                },
+                child: Image.asset(Images.imageLogo),
+              ),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -31,23 +31,7 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
                       Scaffold.of(context).openDrawer();
                     },
                     icon: SvgPicture.asset(Images.iconMenu)),
-                Row(
-                  children: [
-                    IconButton(
-                      onPressed: () {
-                        Scaffold.of(context).openEndDrawer();
-                      },
-                      icon: SvgPicture.asset(Images.iconSearch),
-                    ),
-                    IconButton(
-                      onPressed: () {
-                        BaseNavigation.push(context,
-                            routeName: ManagerRoutes.checkoutScreen);
-                      },
-                      icon: SvgPicture.asset(Images.iconCart),
-                    )
-                  ],
-                ),
+                _customActionIcon(),
               ],
             ),
           ],
@@ -58,4 +42,29 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Size get preferredSize => const Size(double.infinity, 60);
+}
+
+class _customActionIcon extends StatelessWidget {
+  const _customActionIcon();
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        IconButton(
+          onPressed: () {
+            Scaffold.of(context).openEndDrawer();
+          },
+          icon: SvgPicture.asset(Images.iconSearch),
+        ),
+        IconButton(
+          onPressed: () {
+            BaseNavigation.push(context,
+                routeName: ManagerRoutes.checkoutScreen);
+          },
+          icon: SvgPicture.asset(Images.iconCart),
+        )
+      ],
+    );
+  }
 }

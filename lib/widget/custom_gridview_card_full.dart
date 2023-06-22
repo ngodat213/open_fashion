@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:open_fashion/model/product.dart';
 import 'package:open_fashion/theme/colors.dart';
+import 'package:open_fashion/theme/images.dart';
 import 'package:open_fashion/theme/txt_styles.dart';
 import 'package:open_fashion/theme/dimens.dart';
 
@@ -33,7 +34,7 @@ class GridViewCardFull extends StatelessWidget {
                 bottom: 13,
                 right: 15,
                 child: SvgPicture.asset(
-                  'res/icons/favorite.svg',
+                  Images.iconFavorite,
                   color: AppColors.secondary,
                   width: Dimens.WIDTH_16,
                 ),
@@ -45,7 +46,8 @@ class GridViewCardFull extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(product.title!, style: TxtStyle.font16(AppColors.label)),
+              Text(product.title ?? "",
+                  style: TxtStyle.font16(AppColors.label)),
               Text('\$${product.price}',
                   style: TxtStyle.font18(AppColors.secondary)),
             ],

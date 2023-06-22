@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:open_fashion/theme/colors.dart';
+import 'package:open_fashion/theme/images.dart';
 import 'package:open_fashion/theme/txt_styles.dart';
 import 'package:open_fashion/theme/dimens.dart';
 
@@ -38,7 +39,7 @@ class HomefullCard extends StatelessWidget {
                   bottom: 6,
                   right: 9,
                   child: SvgPicture.asset(
-                    'res/icons/favorite.svg',
+                    Images.iconFavorite,
                     color: AppColors.secondary,
                     width: Dimens.WIDTH_16,
                   ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:open_fashion/theme/images.dart';
 import 'package:open_fashion/theme/txt_styles.dart';
 import 'package:open_fashion/theme/dimens.dart';
 import 'package:open_fashion/theme/colors.dart';
@@ -13,7 +14,7 @@ class ListViewBlog extends StatelessWidget {
       child: Row(
         children: [
           Image.asset(
-            'res/images/blog_listview.png',
+            Images.imageBlogListView,
             height: Dimens.HEIGHT_155,
             fit: BoxFit.cover,
           ),

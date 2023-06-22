@@ -11,6 +11,7 @@ class Product {
   double? rating;
   List<String>? size;
   List<String>? type;
+  int? idBrand;
 
   Product({
     this.id,
@@ -23,6 +24,7 @@ class Product {
     this.rating,
     this.size,
     this.type,
+    this.idBrand,
   });
 
   Product.fromJson(Map<String, dynamic> json) {
@@ -38,6 +40,7 @@ class Product {
     rating = json['rating'].toDouble();
     size = json['size'].cast<String>();
     type = json['type'].cast<String>();
+    idBrand = json['idBrand'];
   }
 
   Map<String, dynamic> toJson() {
@@ -55,11 +58,11 @@ class Product {
     data['rating'] = this.rating;
     data['size'] = this.size;
     data['type'] = this.type;
+    data['idBrand'] = this.idBrand;
     return data;
   }
 }
 
-// Extension method to convert Color to hexadecimal string
 extension ColorExtension on Color {
   String toHex() {
     return '#${value.toRadixString(16).padLeft(8, '0')}';

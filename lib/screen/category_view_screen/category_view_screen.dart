@@ -11,7 +11,6 @@ import 'package:open_fashion/widget/appbar.dart';
 import 'package:open_fashion/widget/custom_gridview_card.dart';
 import 'package:open_fashion/widget/custom_gridview_card_full.dart';
 import 'package:open_fashion/widget/custom_listview_card.dart';
-import 'package:open_fashion/widget/footer.dart';
 
 import '../../widget/custom_tag_border.dart';
 
@@ -110,7 +109,6 @@ class _CategoryViewState extends State<CategoryView>
                   numberPages: numberOfPages,
                   onPageChange: onPageSelected,
                 ),
-                FooterWidget(),
               ],
             ),
           ),
@@ -187,7 +185,6 @@ class _CategoryViewState extends State<CategoryView>
 
 class _customButtonCircle extends StatelessWidget {
   const _customButtonCircle({
-    super.key,
     required this.iconPath,
     required this.onTap,
   });

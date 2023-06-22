@@ -24,6 +24,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "about": MessageLookupByLibrary.simpleMessage("About"),
         "accessories": MessageLookupByLibrary.simpleMessage("Accessories"),
+        "addToBasket": MessageLookupByLibrary.simpleMessage("Add To Basket"),
         "all": MessageLookupByLibrary.simpleMessage("All"),
         "allApparel": MessageLookupByLibrary.simpleMessage("All apparel"),
         "app_name": MessageLookupByLibrary.simpleMessage("Open Fashion"),
@@ -51,10 +52,12 @@ class MessageLookup extends MessageLookupByLibrary {
             "Copyright© OpenUI All Rights Reserved."),
         "policy": MessageLookupByLibrary.simpleMessage("Policy"),
         "promo": MessageLookupByLibrary.simpleMessage("Promo"),
+        "rating": MessageLookupByLibrary.simpleMessage("Rating"),
         "sale": MessageLookupByLibrary.simpleMessage("Sale"),
         "shoes": MessageLookupByLibrary.simpleMessage("Shoes"),
         "shoppingBagEmpty": MessageLookupByLibrary.simpleMessage(
             "You have no items in your Shopping Bag."),
+        "size": MessageLookupByLibrary.simpleMessage("Size"),
         "storeLocator": MessageLookupByLibrary.simpleMessage("Store locator"),
         "trending": MessageLookupByLibrary.simpleMessage("Trending"),
         "tshirt": MessageLookupByLibrary.simpleMessage("Tshirt"),

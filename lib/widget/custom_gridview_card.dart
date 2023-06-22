@@ -5,6 +5,7 @@ import 'package:open_fashion/model/product.dart';
 import 'package:open_fashion/screen/product_detail_screen/product_detail_screen.dart';
 import 'package:open_fashion/theme/colors.dart';
 import 'package:open_fashion/theme/dimens.dart';
+import 'package:open_fashion/theme/images.dart';
 import 'package:open_fashion/theme/txt_styles.dart';
 
 class GridViewCard extends StatelessWidget {
@@ -41,7 +42,7 @@ class GridViewCard extends StatelessWidget {
                   bottom: 6,
                   right: 9,
                   child: SvgPicture.asset(
-                    'res/icons/favorite.svg',
+                    Images.iconFavorite,
                     color: AppColors.secondary,
                     width: Dimens.WIDTH_16,
                   ),

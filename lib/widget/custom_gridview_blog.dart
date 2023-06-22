@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:open_fashion/model/blog.dart';
 import 'package:open_fashion/theme/colors.dart';
 import 'package:open_fashion/theme/dimens.dart';
+import 'package:open_fashion/theme/images.dart';
 import 'package:open_fashion/theme/txt_styles.dart';
 import 'package:open_fashion/widget/custom_tag_fill.dart';
 
@@ -34,7 +35,7 @@ class GridViewBlog extends StatelessWidget {
                   top: 11,
                   right: 8,
                   child: SvgPicture.asset(
-                    'res/icons/bookmark.svg',
+                    Images.iconBookmark,
                     width: 18,
                     height: 18,
                   ),

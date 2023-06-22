@@ -7,7 +7,6 @@ import 'package:open_fashion/theme/txt_styles.dart';
 import 'package:open_fashion/utils/base_navigation.dart';
 import 'package:open_fashion/widget/appbar.dart';
 import 'package:open_fashion/widget/custom_gridview_blog.dart';
-import 'package:open_fashion/widget/footer.dart';
 
 import '../homepage_screen/widget/custom_divider.dart';
 import 'widget/custom_outline_buttom.dart';
@@ -115,7 +114,6 @@ class BlogScreen extends StatelessWidget {
                       routeName: ManagerRoutes.blogScreen);
                 },
               ),
-              FooterWidget()
             ],
           ),
         ),
